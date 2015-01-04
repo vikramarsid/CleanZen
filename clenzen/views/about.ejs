@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>CleanZen</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+        <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- login modal -->
+
+<div class="modal fade order-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                 <h4 class="modal-title" id="loginModalLabel">Log<span class="highlight"> In</span></h4>
+            </div>
+            <form role="form" action="/postLogin" method="post">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>                       
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="theme_button"><i class="rt-icon-ok"></i> Login</button>
+                    <a href="/" class="theme_button" data-dismiss="modal"><i class="rt-icon-times"></i> Cancel</a>
+                </div>            
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="box_wrapper">
+
+
+    <section id="topline" class="light_section table_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="/" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
+                    
+                </div>
+                
+
+    
+                <div class="col-sm-9 text-right">
+                <span>
+                  <%if(name!==null){%>
+                    <p style="font-weight:">Hi  <%=name%>!  <a href="/logout" style="cursor:pointer; color:blue">Logout</a>  <a href="/myhome" style="cursor:pointer; color:green">My CleanZen</a></p>
+                 <%}%>
+                    </span>
+                    <span>
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-phone"></i> +1 (669)300-1234
+                    </span>
+                    <span>
+                        <a href="#" class="theme_button btn-sm" data-toggle="modal" data-target=".order-modal"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
+                    </span>
+                     <span>
+                        <a href="register" class="theme_button btn-sm">Register</a>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <span id="toggle_mobile_menu"></span>
+                        <span id="toggle_search"></span>
+                        <div class="widget widget_search">
+                            <form role="search" method="get" id="searchform" class="searchform form-inline" action="quote">
+                                <div class="form-group">
+                                    <label class="screen-reader-text" for="search">Search for:</label>
+                                    <input type="text" value="" name="search" id="search" class="form-control" placeholder="ZipCode">
+                                </div>
+                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
+                            </form>
+                        </div>
+                        <nav id="mainmenu_wrapper">
+                            <ul id="mainmenu" class="nav sf-menu">
+                                <li class="active">
+                                    <a href="index">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#info">About</a>
+                                </li>
+                                <li>
+                                    <a href="#services">Services</a>
+                                </li>
+                                <li>
+                                    <a href="#prices">Prices</a>
+                                </li>
+                                <li>
+                                    <a href="getsp">BookNow</a>
+                                </li>
+                                <li>
+                                    <a href="comingsoon">CleaningTips</a>
+                                </li>
+                                                                
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                 <li>
+                                    <a href="analysis">Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>  
+                        </nav>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="widget widget_text">
+                        <h3>Shortly About Us</h3>
+                                               
+                    </div>
+                </div>
+
+                               
+                
+            </div>
+            
+        </div>
+    </section>
+
+
+
+
+<section class="darkgrey_section parallax" id="skills" style="background-position: 50% 188px;">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-12">
+                <h3 class="section_header">Our Skills</h3>
+                
+            </div>
+            
+        </div>
+        
+        <div class="row">
+                
+             <div class="col-sm-3 to_animate" style="visibility: hidden;">
+                <div class="widget widget_text">
+                    <h3>It's Amazing</h3>
+                    <p><i class="rt-icon-thumbs-up"></i> </p>
+
+                </div>
+            </div>
+
+            <div class="col-sm-3 to_animate text-center" style="visibility: hidden;">
+                <div data-percent="96" class="chart">
+                    <span class="percent">96</span>
+                <canvas height="180" width="180"></canvas></div>
+                <h3>Professionaly Trained Staff</h3>
+            </div>
+            <div class="col-sm-3 to_animate text-center" style="visibility: hidden;">
+                <div data-percent="98" class="chart">
+                    <span class="percent">98</span>
+                <canvas height="180" width="180"></canvas></div>
+                <h3>Commitment</h3>
+            </div>
+            <div class="col-sm-3 to_animate text-center" style="visibility: hidden;">
+                <div data-percent="91" class="chart">
+                    <span class="percent">91</span>
+                <canvas height="180" width="180"></canvas></div>
+                <h3>Availbility</h3>
+            </div>
+           
+
+        </div>
+    </div>
+</section>
+
+
+
+    <section class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2 class="section_header">Our Team</h2>
+                    <blockquote>
+                        
+                        <p></p>
+                    </blockquote>
+                </div>
+                
+            </div>
+            <div class="row">
+                    
+                    <div class="col-sm-6 col-md-3">
+                        
+                        <div class="thumbnail">
+                            <img alt="" src="example/team/01.jpg">
+                            <div class="caption">
+                                <p></p>
+                                <p class="text-center team-social">
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-facebook" data-original-title="Facebook">#</a>
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-twitter" data-original-title="Twitter">#</a>
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-google" data-original-title="Google">#</a>
+                                </p>
+                            </div>
+                        </div>
+                        <h3>Vikram Sai Arsid</h3>
+                        <p>Director</p>
+
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                        
+                        <div class="thumbnail">
+                            <img alt="" src="example/team/07.jpg">
+                            <div class="caption">
+                                <p></p>
+                                <p class="text-center team-social">
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-facebook" data-original-title="Facebook">#</a>
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-twitter" data-original-title="Twitter">#</a>
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-google" data-original-title="Google">#</a>
+                                </p>
+                            </div>
+                        </div>
+                        <h3>Vipul Shivnani</h3>
+                        <p>CEO</p>
+
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                        
+                        <div class="thumbnail">
+                            <img alt="" src="example/team/02.jpg">
+                            <div class="caption">
+                                <p></p>
+                                <p class="text-center team-social">
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-facebook" data-original-title="Facebook">#</a>
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-twitter" data-original-title="Twitter">#</a>
+                                    <a data-toggle="tooltip" title="" href="#" class="socialico-google" data-original-title="Google">#</a>
+                                </p>
+                            </div>
+                        </div>
+                        <h3>Nikhil</h3>
+                        <p>Manager</p>
+
+                    </div>
+
+                   
+                </div>
+
+        </div>
+    </section>
+
+
+    <footer id="footer" class="grey_section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_flickr">
+                        <h3 class="widget-title">Flickr Widget</h3>
+                        <ul id="flickr"></ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 to_animate">
+
+                    <div class="widget widget_twitter">
+                        <h3 class="widget-title">Twitter Widget</h3>
+                        <div class="twitter"></div>
+                    </div>
+
+                </div>
+                    
+                    
+                
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_mailchimp">
+                        <h3 class="widget-title">Subscribe</h3>
+                        <p>Please, subscribe to our latest news to be updated.</p>
+                        <form id="signup" action="/" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input name="email" id="mailchimp_email" type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <button type="submit" class="theme_button">Send</button>
+                            <div id="response"></div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_text">
+                        <h3 class="widget-title">Company Info</h3>
+                        <p>CleanZen is the most trusted name among residential cleaning companies because we consistently deliver value through quality service and premium products that meet or exceed our customers’ expectations.</p>
+                        <p> All of this accentuates why we are a top cleaning company. </p>
+                        <p>
+                            <a class="socialico-facebook" href="#" title="Facebook" data-toggle="tooltip">#</a>
+                            <a class="socialico-twitter" href="#" title="Twitter" data-toggle="tooltip">#</a>
+                            <a class="socialico-google" href="#" title="Google" data-toggle="tooltip">#</a>
+                        </p>
+                    </div>
+                </div>
+                    
+                    
+                
+            
+            </div>
+        </div>
+    </footer>
+
+
+    <section id="copyright" class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2014 - <strong>CleanZen</strong></p>
+                </div>
+                               
+            </div>
+        </div>
+    </section>
+ 
+
+</div><!-- eof #box_wrapper -->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+
+        <!-- libraries -->
+        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/vendor/jquery.appear.js"></script>
+
+        <!-- superfish menu  -->
+        <script src="/js/vendor/jquery.hoverIntent.js"></script>
+        <script src="/js/vendor/superfish.js"></script>
+        
+        <!-- page scrolling -->
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
+        <script src="/js/vendor/jquery.ui.totop.js"></script>
+        <script src="/js/vendor/jquery.localscroll-min.js"></script>
+        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
+        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
+
+        <!-- widgets -->
+        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
+        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
+        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
+        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
+        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
+        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
+        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
+        <script src='twitter/jquery.tweet.min.js'></script><!-- twitter -->
+
+        <!-- sliders, filters, carousels -->
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src='/js/vendor/owl.carousel.min.js'></script>
+        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
+        <script src='/js/vendor/jquery.flexslider-min.js'></script>
+        <script src='/js/vendor/jquery.bxslider.min.js'></script>
+
+        <!-- custom scripts -->
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+    </body>
+</html>

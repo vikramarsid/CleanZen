@@ -1,0 +1,86 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-inverse {
+	background-color: #fff;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	-moz-box-shadow: 0 8px 6px -6px black;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+.navbar {
+	position: relative;
+	z-index: 1000;
+	min-height: 117px;
+	/* margin-bottom: 20px; */
+	border: 1px solid transparent;
+}
+
+.navbar {
+	border-radius: 4px;
+}
+
+.navbar > .container .navbar-brand {
+	margin-left: -81px;
+}
+
+.navbar-nav {
+	margin-top: 0;
+}
+
+.navbar-brand {
+	margin-top: -40px;
+}
+
+.navbar-brand img {
+	width: 300px;
+	position: absolute;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	font-weight: bolder;
+	font-size: 1.50em;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus {
+	color: #30ABEF;
+	background: transparent;
+}
+
+.navbar-inverse .navbar-nav > a, .navbar-inverse .navbar-nav >  a:hover {
+	color: #30ABEF;
+	background: transparent;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: #042d4f !important;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover{
+	color: #30ABEF !important;
+}
+
+
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+
+.navbar-nav {
+	margin-top: 35px;
+}
+
+ul.navbar-nav:last-child a {
+	padding-right: 12px;
+}
+
+.phone {
+	position: absolute;
+	margin-top: 75px;
+	float: right;
+	right: 132px;
+	font-size: 28px;
+	color: #F79016;
+}

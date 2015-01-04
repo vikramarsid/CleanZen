@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>CleanZen</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+        <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+    
+    <script>
+        function validateForm() {
+   			 var x = document.forms["myForm"]["searchzip"].value;
+   			 postalCodeRegex = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/;
+   			 if (x==null || x=="") {
+        alert("First name must be filled out");
+        return false;
+    }
+    if (!x.match(postalCodeRegex)){
+        alert("Please enter valid zipcode");
+        return false;
+    }
+        
+}
+        </script>
+
+</head>
+<body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- login modal -->
+
+<div class="modal fade order-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                 <h4 class="modal-title" id="loginModalLabel">Log<span class="highlight"> In</span></h4>
+            </div>
+            <form role="form" action="/postLogin" method="post">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>                       
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="theme_button"><i class="rt-icon-ok"></i> Login</button>
+                    <a href="/" class="theme_button" data-dismiss="modal"><i class="rt-icon-times"></i> Cancel</a>
+                </div>            
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="box_wrapper">
+
+
+    <section id="topline" class="light_section table_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="/" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
+                    
+                </div>
+                
+
+    
+                <div class="col-sm-9 text-right">
+                <span>
+                  <%if(name!==null){%>
+    				<p style="font-weight:">Hi  <%=name%>!  <a href="/logout" style="cursor:pointer; color:blue">Logout</a>  <a href="/myhome" style="cursor:pointer; color:green">My CleanZen</a></p>
+   				 <%}%>
+                    </span>
+                    <span>
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-phone"></i> +1 (669)300-1234
+                    </span>
+                    <span>
+                        <a href="#" class="theme_button btn-sm" data-toggle="modal" data-target=".order-modal"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
+                    </span>
+                     <span>
+                        <a href="register" class="theme_button btn-sm">Register</a>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <span id="toggle_mobile_menu"></span>
+                        <span id="toggle_search"></span>
+                        <div class="widget widget_search">
+                            <form name="myForm" method="get" role="search" id="searchform" class="searchform form-inline" action="quote" onsubmit="return validateForm();">
+                                <div class="form-group">
+                                    <label class="screen-reader-text" for="search">Search for:</label>
+                                    <input type="text" value="" name="searchzip" id="search" class="form-control" placeholder="ZipCode">
+                                </div>
+                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
+                            </form>
+                        </div>
+                        <nav id="mainmenu_wrapper">
+                            <ul id="mainmenu" class="nav sf-menu">
+                                <li class="active">
+                                    <a href="index">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#info">About</a>
+                                </li>
+                                <li>
+                                    <a href="#service">Services</a>
+                                </li>
+                                <li>
+                                    <a href="#prices">Prices</a>
+                                </li>
+                                <li>
+                                    <a href="quote">BookNow</a>
+                                </li>
+                                <li>
+                                    <a href="comingsoon">CleaningTips</a>
+                                </li>
+                                                                
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="analysis">Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>  
+                        </nav>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="mainslider" class="light_section">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="example/flex_slide01.jpg" alt="">
+                    <div class="slide_description_wrapper right">
+                        <div class="slide_description">
+                            <p data-animation="fadeInLeft">Cleaning And Housekeeping</p>
+                            
+                            <h3 data-animation="fadeInLeft">We Working</h3>
+                            
+                            <h3 data-animation="fadeInLeft">While <span class="highlight">You</span> Rest</h3>
+
+                            <p><a class="theme_button" href="services">All Services</a></p>
+                            
+                        </div>
+                    </div> 
+                </li>
+                <li>
+                    <img src="example/flex_slide02.jpg" alt="">
+                    <div class="slide_description_wrapper">
+                        <div class="slide_description">
+                            <p data-animation="fadeInLeft">Cleaning And Housekeeping</p>
+                            
+                            <h3 data-animation="fadeInLeft">Let Us Clean</h3>
+                            
+                            <h3 data-animation="fadeInLeft"><span class="highlight">Your Premises</span></h3>
+
+                            <p><a class="theme_button" href="services">All Services</a></p>
+                            
+                        </div>
+                    </div> 
+                </li>
+               
+                
+            </ul>
+        </div>
+
+    </section>
+
+
+
+<section id="info" class="grey_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2 class="section_header to_animate">Book Trusted Home Cleaners in just<span class="highlight">60 seconds</span></h2>
+                <p class="to_animate">You do the relaxing � we'll do the cleaning</p>
+                <p>CleanZen is a professional housekeeping company that provides house cleaning services throughout the country that specializes in cleaning for health. Our deep cleaning system, products and extensive industry experience lets us make your house cleaner and healthier than ever before, providing a safer environment than any residential cleaning service. Our 22-Step Healthy Touch� Deep Cleaning System, along with our four-person cleaning teams, environmentally preferred products, state-of-the-art equipment and unique cleaning process provide customers an affordable line of unmatchable home cleaning services. The Maids is the best cleaning team in the residential house cleaning industry.</p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4 to_animate" data-animation="fadeInLeft">
+
+                <div class="teaser">
+                    <div class="teaser_icon">
+                        <i class="rt-icon-home"></i>
+                    </div>
+                    <div class="teaser_description">
+                        <h3>House<span class="highlight"> Keeping</span></h3>
+                        <p>CleanZen is your place to find quality housekeepers/maids to care for all your cleaning needs. Depending on the size of your home we can provide you with either one or two housekeepers/maids to perform the cleaning.</p>
+                        <p><a href="services" class="theme_button">Know More</a></p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-sm-4 to_animate" data-animation="fadeInBottom">
+
+                <div class="teaser">
+                    <div class="teaser_icon">
+                        <i class="rt-icon-tie"></i>
+                    </div>
+                    <div class="teaser_description">
+                        <h3>Office <span class="highlight">CleanUp</span></h3>
+                        <p>Your customers, tenants and employees deserve only the best when they come to your office. Jani-King is the global leader in the commercial cleaning industry and stops at nothing to deliver unrivaled office cleaning, business cleaning and building maintenance services to the people who matter most in your business.</p>
+                        <p><a href="services" class="theme_button">Know More</a></p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-sm-4 to_animate" data-animation="fadeInRight">
+
+                <div class="teaser">
+                    <div class="teaser_icon">
+                        <i class="rt-icon-clock"></i>
+                    </div>
+                    <div class="teaser_description">
+                        <h3>Why <span class="highlight">CleanZen</span></h3>
+                        <p>Finding a great cleaning company can be diffcult. We are here to make it simple.</p>
+                        <p><b>Our favorite reason? We actually care about all of our clients.</b></p>
+                        <p><a href="services" class="theme_button">Know More</a></p>
+                    </div>
+                </div>
+
+            </div>
+                
+
+        </div> 
+    </div>
+</section>
+
+<section id="service" class="grey_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2 class="section_header text-center to_animate" data-animation="hatch">What We Offrer?</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="icon-header text-right to_animate" data-animation="fadeInLeft">Green Products</i></h3>
+                <h3 class="icon-header text-right to_animate" data-animation="fadeInLeft">Fully Equipped Teams</i></h3>
+                <h3 class="icon-header text-right to_animate" data-animation="fadeInLeft">Safe and Insured</i></h3>
+            </div>
+
+            <div class="col-md-4 col-md-push-4">
+                <h3 class="icon-header to_animate" data-animation="fadeInRight"></i> Flexible Availability</h3>
+                <h3 class="icon-header to_animate" data-animation="fadeInRight"></i> Up to 20% discount for regular services</h3>
+                <h3 class="icon-header to_animate" data-animation="fadeInRight"></i> Industry Experts</h3>
+            </div>
+
+            <div class="col-md-4 col-md-pull-4 features_image to_animate" data-animation="slideUp">
+                <img src="example/imac.png" alt=""><br></br>
+                <center><a href="services" class="theme_button">Explore</a></center>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<section id="prices" class="grey_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center to_animate">
+                <h2 class="section_header">
+                    <span class="highlight"><i class="fa fa-money"></i></span>
+                     Our Prices
+                 </h2>
+                <p>Check our attractive pricing plans!</p>
+            </div>
+            
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInRight">
+                <ul class="price-table style2">
+                    <li class="plan-name"><h3>Single Clean</h3></li>
+                    <li class="plan-price">
+                        <span>$</span>
+                        <span>89</span> 
+                    </li>
+                    <li class="features-list">
+                        <ul>
+                            <li class="enabled">Full 22 Point Check</li>
+                            <li class="enabled">Bedrooms&Living Spaces</li>
+                            <li class="enabled">Bathrooms$TubSpaces</li>
+                            <li class="disabled">Kitchen</li>
+                            <li class="disabled">Complementary Fridge Cleaning</li>
+                        </ul>
+                    </li>
+                    <li class="call-to-action"><a href="register" class="theme_button">Sign Up Now</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInRight">
+                <ul class="price-table style1">
+                    <li class="plan-name"><h3>Week Clean</h3></li>
+                    <li class="plan-price">
+                        <span>$</span>
+                        <span>149</span> 
+                    </li>
+                    <li class="features-list">
+                        <ul>
+                            <li class="enabled">Full 22 Point Check</li>
+                            <li class="enabled">Bedrooms&Living Spaces</li>
+                            <li class="enabled">Bathrooms$TubSpaces</li>
+                            <li class="enabled">Kitchen</li>
+                            <li class="disabled">Complementary Fridge Cleaning</li>
+                        </ul>
+                    </li>
+                    <li class="call-to-action"><a href="register" class="theme_button">Sign Up Now</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInRight">
+                <ul class="price-table style1">
+                    <li class="plan-name"><h3>Monthly Clean</h3></li>
+                    <li class="plan-price">
+                        <span>$</span>
+                        <span>349</span> 
+                    </li>
+                    <li class="features-list">
+                        <ul>
+							<li class="enabled">Full 32 Point Check</li>
+                            <li class="enabled">Bedrooms&Living Spaces</li>
+                            <li class="enabled">Bathrooms$TubSpaces</li>
+                            <li class="enabled">Kitchen</li>
+                            <li class="enabled">All Appliace Cleaning</li>
+                        </ul>
+                    </li>
+                    <li class="call-to-action"><a href="register" class="theme_button">Sign Up Now</a></li>
+                </ul>
+            </div>            
+
+            <div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInRight">
+                <ul class="price-table style1">
+                    <li class="plan-name"><h3>Yearly Clean</h3></li>
+                    <li class="plan-price">
+                        <span>$</span>
+                        <span>1999</span> 
+                    </li>
+                    <li class="features-list">
+                        <ul>
+                            <li class="enabled">Full 32 Point Check</li>
+                            <li class="enabled">Bedrooms&Living Spaces</li>
+                            <li class="enabled">Bathrooms$TubSpaces</li>
+                            <li class="enabled">Full House Cleaning</li>
+                            <li class="enabled">Interior Decoration</li>
+                        </ul>
+                    </li>
+                    <li class="call-to-action"><a href="register" class="theme_button">Sign Up Now</a></li>
+                </ul>
+            </div>
+
+                
+            
+        </div>
+    </div>
+</section>
+
+<section id="partners" class="light_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 widget">
+
+                <h3>Testimonials</h3>
+
+
+                <div id="carousel-media" class="carousel slide testimonials-carousel" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-media" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-media" data-slide-to="1"></li>
+                        <li data-target="#carousel-media" data-slide-to="2"></li>
+                    </ol>
+
+                    
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object" src="example/team/01.jpg" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h4>Jhon Smith</h4>
+                                    <p>
+                                        Google Inc.
+                                    </p>
+                                    <div class="product-rating">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+                                There�s no better feeling than coming home to a spotless home. CleanZen has made my life easier by giving me one less thing to worry about each month when they come. Thank you CleanZen! 
+                            </p>
+                        </div>
+                        
+                        <div class="item">
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object" src="example/team/02.jpg" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h4>Amy S.</h4>
+                                    <p>
+                                        San Diego, Ca.
+                                    </p>
+                                    <div class="product-rating">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+                                Looking for the best house cleaners around? Call CleanZen today! Booking my cleaning couldn�t have been easier online. I highly recommend CleanZen.
+                            </p>
+                        </div>
+                        
+                        <div class="item">
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object" src="example/team/03.jpg" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h4>Eric N.</h4>
+                                    <p>
+                                        Los Angeles, Ca.
+                                    </p>
+                                    <div class="product-rating">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+                                I'm constantly on the go so I never really have time to clean my own place. CleanZen has exceeded all expectations and made everything as simple as possible. 
+                            </p>
+                        </div>
+                        
+
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-media" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-media" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+        
+            
+        
+            </div>
+            
+            <div class="col-sm-8 widget">
+
+                <h3>Our Customers</h3>
+                
+                <div id="partners-carousel" class="owl-carousel">
+                    <div>
+                        <a href="#">
+                            <img src="example/partner1.png" alt="">
+                        </a>
+
+                    </div>
+
+                    <div>
+                        <a href="#">
+                            <img src="example/partner2.png" alt="">
+                        </a>
+
+                    </div>
+
+                    <div>
+                        <a href="#">
+                            <img src="example/partner3.png" alt="">
+                        </a>
+
+                    </div>
+
+                    <div>
+                        <a href="#">
+                            <img src="example/partner4.png" alt="">
+                        </a>
+
+                    </div>
+
+                    <div>
+                        <a href="#">
+                            <img src="example/partner5.png" alt="">
+                        </a>
+
+                    </div>
+
+                    <div>
+                        <a href="#">
+                            <img src="example/partner6.png" alt="">
+                        </a>
+
+                    </div>
+
+                    <div>
+                        <a href="#">
+                            <img src="example/partner1.png" alt="">
+                        </a>
+
+                    </div>
+
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="light_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 to_animate" data-animation="fadeIn">
+                <div class="widget widget_text">
+                    <h3>Why To Choose Us?</h3>
+                    <p><span class="highlight"><i class="rt-icon-like"></i></span>
+                    CleanZen is the only residential cleaning company to clean for health using the company’s exclusive 22-Step Healthy Touch ® Deep Cleaning System. 
+                    This unique cleaning method sets us apart from other cleaning companies. We provide customers with cleaner, healthier homes through using environmentally preferable cleaning products, a strategic, methodic cleaning approach and state-of-the-art equipment, 
+                    including our patented back pack vacuum with HEPA filtration that can capture up to 99 percent of all dust, allergens, bacteria, pet dander, pollen and other pollutants.
+                                       
+                    </p>
+                     
+
+                </div>
+                
+            </div>
+            <div class="col-sm-6 to_animate" data-animation="fadeIn">
+                <div class="widget widget_text">
+                    <h3>Our Experience</h3>
+                    <p>Check our Experiance<br />These are our up to date Stats</p>
+                    <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                <span>Houses</span>
+                            </div>
+                        </div>
+                        
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                <span>Offices</span>
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 8%">
+                                <span>Events</span>
+                            </div>
+                        </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="color_section table_section action_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Don't Wait! Order Your Clean Now!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione sed enim a dicta dignissimos perferendis asperiores nam similique quia pariatur voluptatum beatae qui, fugit expedita porro at doloribus quis ea.</p>
+            </div>
+            <div class="col-sm-4">
+                <a href="book" class="theme_button block_button"><i class="rt-icon-pen-alt-stroke"></i> Order Now!</a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+    <footer id="footer" class="grey_section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_flickr">
+                        <h3 class="widget-title">Flickr Widget</h3>
+                        <ul id="flickr"></ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 to_animate">
+
+                    <div class="widget widget_twitter">
+                        <h3 class="widget-title">Twitter Widget</h3>
+                        <div class="twitter"></div>
+                    </div>
+
+                </div>
+                    
+                    
+                
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_mailchimp">
+                        <h3 class="widget-title">Subscribe</h3>
+                        <p>Please, subscribe to our latest news to be updated.</p>
+                        <form id="signup" action="/" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input name="email" id="mailchimp_email" type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <button type="submit" class="theme_button">Send</button>
+                            <div id="response"></div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_text">
+                        <h3 class="widget-title">Company Info</h3>
+                        <p>CleanZen is the most trusted name among residential cleaning companies because we consistently deliver value through quality service and premium products that meet or exceed our customers’ expectations.</p>
+                        <p> All of this accentuates why we are a top cleaning company. </p>
+                        <p>
+                            <a class="socialico-facebook" href="#" title="Facebook" data-toggle="tooltip">#</a>
+                            <a class="socialico-twitter" href="#" title="Twitter" data-toggle="tooltip">#</a>
+                            <a class="socialico-google" href="#" title="Google" data-toggle="tooltip">#</a>
+                        </p>
+                    </div>
+                </div>
+                    
+                    
+                
+            
+            </div>
+        </div>
+    </footer>
+
+
+    <section id="copyright" class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2014 - <strong>CleanZen</strong></p>
+                </div>
+                               
+            </div>
+        </div>
+    </section>
+ 
+
+</div><!-- eof #box_wrapper -->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+
+        <!-- libraries -->
+        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/vendor/jquery.appear.js"></script>
+
+        <!-- superfish menu  -->
+        <script src="/js/vendor/jquery.hoverIntent.js"></script>
+        <script src="/js/vendor/superfish.js"></script>
+        
+        <!-- page scrolling -->
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
+        <script src="/js/vendor/jquery.ui.totop.js"></script>
+        <script src="/js/vendor/jquery.localscroll-min.js"></script>
+        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
+        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
+
+        <!-- widgets -->
+        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
+        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
+        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
+        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
+        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
+        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
+        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
+        <script src='twitter/jquery.tweet.min.js'></script><!-- twitter -->
+
+        <!-- sliders, filters, carousels -->
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src='/js/vendor/owl.carousel.min.js'></script>
+        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
+        <script src='/js/vendor/jquery.flexslider-min.js'></script>
+        <script src='/js/vendor/jquery.bxslider.min.js'></script>
+
+        <!-- custom scripts -->
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+        
+        
+
+    </body>
+</html>

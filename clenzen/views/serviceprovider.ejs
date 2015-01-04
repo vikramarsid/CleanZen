@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html> <!--<![endif]-->
+<head>
+    <title>CleanZen</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/star-rating.css">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/js/star-rating.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/handlebars-v2.0.0.js" ></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+        <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+        <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+    
+ 
+</head>
+<body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- login modal -->
+
+<div class="modal fade order-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                 <h4 class="modal-title" id="loginModalLabel">Log<span class="highlight"> In</span></h4>
+            </div>
+            <form role="form" action="/postLogin" method="post">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>                       
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="theme_button"><i class="rt-icon-ok"></i> Login</button>
+                    <a href="/" class="theme_button" data-dismiss="modal"><i class="rt-icon-times"></i> Cancel</a>
+                </div>            
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="box_wrapper">
+
+
+    <section id="topline" class="light_section table_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="/" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
+                    
+                </div>
+                
+
+    
+                <div class="col-sm-9 text-right">
+                <span>
+                 
+                    </span>
+                    <span>
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-phone"></i> +1 (669)300-1234
+                    </span>
+                    <span>
+                        <a href="#" class="theme_button btn-sm" data-toggle="modal" data-target=".order-modal"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
+                    </span>
+                     <span>
+                        <a href="register" class="theme_button btn-sm">Register</a>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <span id="toggle_mobile_menu"></span>
+                        <span id="toggle_search"></span>
+                        <div class="widget widget_search">
+                            <form role="search" method="get" id="searchform" class="searchform form-inline" action="quote">
+                                <div class="form-group">
+                                    <label class="screen-reader-text" for="search">Search for:</label>
+                                    <input type="text" value="" name="search" id="search" class="form-control" placeholder="ZipCode">
+                                </div>
+                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
+                            </form>
+                        </div>
+                       <nav id="mainmenu_wrapper">
+                            <ul id="mainmenu" class="nav sf-menu">
+                                <li class="active">
+                                    <a href="index">Home</a>
+                                </li>
+                                <li>
+                                    <a href="index#info">About</a>
+                                </li>
+                                <li>
+                                    <a href="index#services">Services</a>
+                                </li>
+                                <li>
+                                    <a href="index#prices">Prices</a>
+                                </li>
+                                <li>
+                                    <a href="quote">BookNow</a>
+                                </li>
+                                <li>
+                                    <a href="comingsoon">CleaningTips</a>
+                                </li>
+                                                                
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                 <li>
+                                    <a href="analysis">Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>  
+                        </nav>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="light_section">
+        <div class="container">
+            <div class="row">
+                <hr class="divider40">
+                <div class="col-lg-6">
+                    <div class="widget widget_text">
+                        <h3>Service Providers</h3>
+                        <div class="panel-group" id="accordion">
+                        
+                     
+                                              
+                        <% 
+						 var num = zip; 
+						 var liveword = num;
+							var valid = /^[95*]/;
+						if (!liveword.match(valid))
+						 {
+						  var print = "Sorry !!! Presently Service Providers are not available for the Zip code searched in the database.";
+						%>
+						<center><h4><%= print %></h4></center>
+						<% }
+						 else {
+						
+                        %> 
+                         <% for(var i=0;i<sp.length;i++) {%>  
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    
+                                    <h4 class="panel-title">
+                                        <a class="" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=i%>">
+                                         
+                                            <i class="rt-icon-chat2"></i> <%=sp[i].name%>
+                                   </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse<%=i%>" class="panel-collapse collapse in">
+                                
+                                    <div class="panel-body">
+                                        <%=sp[i].address%>, <%=sp[i].city%>
+                                        <%=sp[i].state%>, <%=sp[i].zipcode%><br />
+                                        <!--<input id="input-21f" value="3" type="number" min=0 max=5 step=0.1 data-size="xs" > -->
+                                        Rating : <%=sp[i].rating%> Stars <br />
+                                        BackgroundCheck : <%=sp[i].backcheck%><br />
+                                        ResposeRate : <%=sp[i].resrate%>% <br />
+                                        CustomerCount : <%=sp[i].nocustomers%>% <br />
+                                        Price : <%=sp[i].resrate%>
+                                        <a href="comingsoon" class="btn btn-default">View More</a>
+                                        <a href="book" class="btn btn-default">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                           <%}}%> 
+               
+                        </div>
+
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <section class="light_section">
+        <div class="container">
+            <div class="row"></div>
+        </div>
+    </section>
+
+
+    <footer id="footer" class="grey_section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_flickr">
+                        <h3 class="widget-title">Flickr Widget</h3>
+                        <ul id="flickr"></ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 to_animate">
+
+                    <div class="widget widget_twitter">
+                        <h3 class="widget-title">Twitter Widget</h3>
+                        <div class="twitter"></div>
+                    </div>
+
+                </div>
+                    
+                    
+                
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_mailchimp">
+                        <h3 class="widget-title">Subscribe</h3>
+                        <p>Please, subscribe to our latest news to be updated.</p>
+                        <form id="signup" action="/" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input name="email" id="mailchimp_email" type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <button type="submit" class="theme_button">Send</button>
+                            <div id="response"></div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_text">
+                        <h3 class="widget-title">Company Info</h3>
+                        <p>CleanZen is the most trusted name among residential cleaning companies because we consistently deliver value through quality service and premium products that meet or exceed our customers’ expectations.</p>
+                        <p> All of this accentuates why we are a top cleaning company. </p>
+                        <p>
+                            <a class="socialico-facebook" href="#" title="Facebook" data-toggle="tooltip">#</a>
+                            <a class="socialico-twitter" href="#" title="Twitter" data-toggle="tooltip">#</a>
+                            <a class="socialico-google" href="#" title="Google" data-toggle="tooltip">#</a>
+                        </p>
+                    </div>
+                </div>
+                    
+                    
+                
+            
+            </div>
+        </div>
+    </footer>
+
+
+    <section id="copyright" class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2014 - <strong>CleanZen</strong></p>
+                </div>
+                               
+            </div>
+        </div>
+    </section>
+ 
+
+</div><!-- eof #box_wrapper -->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+
+        <!-- libraries -->
+        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/vendor/jquery.appear.js"></script>
+
+        <!-- superfish menu  -->
+        <script src="/js/vendor/jquery.hoverIntent.js"></script>
+        <script src="/js/vendor/superfish.js"></script>
+        
+        <!-- page scrolling -->
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
+        <script src="/js/vendor/jquery.ui.totop.js"></script>
+        <script src="/js/vendor/jquery.localscroll-min.js"></script>
+        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
+        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
+
+        <!-- widgets -->
+        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
+        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
+        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
+        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
+        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
+        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
+        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
+        <script src='/twitter/jquery.tweet.min.js'></script><!-- twitter -->
+
+        <!-- sliders, filters, carousels -->
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src='/js/vendor/owl.carousel.min.js'></script>
+        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
+        <script src='/js/vendor/jquery.flexslider-min.js'></script>
+        <script src='/js/vendor/jquery.bxslider.min.js'></script>
+
+        <!-- custom scripts -->
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+        <script id="some-template" type="text/x-handlebars-template">
+         <table>
+            <thead>
+              <th>name</th>
+              <th>Real Name</th>
+              <th>Email</th>
+            </thead>
+            <tbody>
+              {{#resultsDist}}
+                <tr>
+                  <td>{{SPid}}</td>
+                  <td>{{distance}} {{spadd}}</td>
+                  <td>{{spcity}}</td>
+                </tr>
+              {{/resultsDist}}
+              
+              hi
+            </tbody>
+          </table>
+        </script> 
+
+        <script>
+        var map;
+        var geocoder;
+        var bounds = new google.maps.LatLngBounds();
+        var markersArray = [];
+        var destinationsList=[];
+        var minJsonArray = {resultsDist:[]};
+
+        var origin1="95112";
+        var country = ",united states";
+        var destinationA = 'San francisco, United states';
+        for(var i=0;i<5;i++) {
+        destinationsList.push('95112'+country);
+        }
+        
+        var destinationIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=D|FF0000|000000';
+        var originIcon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FFFF00|000000';
+
+        function initialize() {
+          var opts = {
+            center: new google.maps.LatLng(55.53, 9.4),
+            zoom: 10
+          };
+          map = new google.maps.Map(document.getElementById('map-canvas'), opts);
+          geocoder = new google.maps.Geocoder();
+        }
+
+        function calculateDistances() {
+          var service = new google.maps.DistanceMatrixService();
+          service.getDistanceMatrix(
+            {
+              origins: [origin1],
+              destinations: destinationsList,
+              travelMode: google.maps.TravelMode.DRIVING,
+              unitSystem: google.maps.UnitSystem.METRIC,
+              avoidHighways: false,
+              avoidTolls: false
+            }, callback);
+        }
+        //added by vipul
+
+        function sortJsonArrayByProperty(objArray, prop, direction){
+            if (arguments.length<2) throw new Error("sortJsonArrayByProp requires 2 arguments");
+            var direct = arguments.length>2 ? arguments[2] : 1; //Default to ascending
+
+            if (objArray && objArray.constructor===Array){
+                var propPath = (prop.constructor===Array) ? prop : prop.split(".");
+                objArray.sort(function(a,b){
+                    for (var p in propPath){
+                        if (a[propPath[p]] && b[propPath[p]]){
+                            a = a[propPath[p]];
+                            b = b[propPath[p]];
+                        }
+                    }
+                   return ( (a < b) ? -1*direct : ((a > b) ? 1*direct : 0) );
+                });
+            }
+        }
+
+
+
+        function callback(response, status) {
+
+        var minDist=[0];
+        var dist=0;
+        var temp;
+          if (status != google.maps.DistanceMatrixStatus.OK) {
+            alert('Error was: ' + status);
+          } else {
+            var origins = response.originAddresses;
+            var destinations = response.destinationAddresses;
+            var outputDiv = document.getElementById('outputDiv');
+            outputDiv.innerHTML = '';
+            deleteOverlays();
+
+            for (var i = 0; i < origins.length; i++) {
+             
+              var results = response.rows[i].elements;
+              addMarker(origins[i], false);
+              for (var j = 0; j < results.length; j++) {
+           
+                addMarker(destinations[j], true);
+                temp=results[j].distance.value;
+                temp=temp/1000;
+             
+                minDist.push(parseFloat(temp));
+                minJsonArray.resultsDist.push({"SPid":destinationsList[j],"distance":temp,"sps":sp[j].sp_id,"spadd":sp[j].sp_address,"spcity":sp[j].sp_city,"spstate":sp[j].sp_state,"spzipcode":sp[j].sp_zipcode,"sprate":sp[j].sp_ratings,"spback":sp[j].sp_backcheck,"spresrate":sp[j].sp_res_rate});
+                    
+
+              }
+              
+            }
+            
+            sortJsonArrayByProperty(minJsonArray.resultsDist, 'distance');
+            
+            var source   = $("#some-template").html();
+            var template = Handlebars.compile(source);
+            minJsonArray = JSON.stringify(minJsonArray);
+            $('#test').append(template(minJsonArray));
+            console.log(minJsonArray);
+          }
+        }
+
+       
+        function createTooltip(marker, key) {
+                      //create a tooltip
+                      var tooltipOptions = {
+                          marker: marker,
+                          content: places[key].tooltip_html,
+                          cssClass: 'tooltip' // name of a css class to apply to tooltip
+                      };
+                      var tooltip = new Tooltip(tooltipOptions);
+
+                  }
+
+        function addMarker(location, isDestination) {
+          var icon;
+          if (isDestination) {
+            icon = destinationIcon;
+          } else {
+            icon = originIcon;
+          }
+          geocoder.geocode({'address': location}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              bounds.extend(results[0].geometry.location);
+              map.fitBounds(bounds);
+              var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+                icon: icon
+              });
+              markersArray.push(marker);
+        // added by vipul for adding a tooltip   
+             var tooltipOptions={
+          marker:marker,// required
+          content:results[0].geometry.location,// required
+          cssClass:'tooltip' // name of a css class to apply to tooltip
+        };
+        var tooltip = new Tooltip(tooltipOptions);
+            } else {
+              alert('Geocode was not successful for the following reason: '
+                + status);
+            }
+          });
+        }
+
+
+        function deleteOverlays() {
+          for (var i = 0; i < markersArray.length; i++) {
+            markersArray[i].setMap(null);
+          }
+          markersArray = [];
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+        
+</body>
+</html>

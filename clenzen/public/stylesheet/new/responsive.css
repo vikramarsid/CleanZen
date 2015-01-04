@@ -1,0 +1,67 @@
+@media only screen and (max-width: 1130px) {
+.wrapper{width:100%; margin:auto; padding-left:1%; padding-right:1%;}
+.header{background-size:auto auto;}
+.offer{background-size:auto 100%;}
+.carousel-control.left{left:1%;}
+.carousel-control.right{right:4%;}
+.row{margin-left:0; margin-right:0;}
+}
+
+@media only screen and (max-width: 1024px){
+	.hand{background-size:50%;}
+	.client-logo ul li{margin-left:4px;}
+	}
+@media only screen and (max-width: 950px) {
+	.navbar-default .navbar-nav > li{margin-left:16px; }
+	.navbar-default .navbar-nav > li > a{font-size:16px;}
+	.num{font-size:16px; margin-top:-3px; background-size:24px 24px; padding-left:24px;}
+	.ft-links,.ft-col{min-height:250px;}
+	.book{padding:0 14px;}
+	.row{margin-left:0; margin-right:0;}
+	.hand{background-size:50%;}
+	.clean{padding:0;}
+	}
+	
+	@media only screen and (max-width: 770px) {
+		.num{padding:8px 0 8px 40px; font-size:16px;}
+		.navbar-brand img{width:70%;}
+		.hand{background-size:auto;}
+		.overlay, .overlay1{ background:rgba(255,255,255, 0.4);}
+		}
+	
+	@media only screen and (max-width: 767px) {
+		.top-right{float:none;width:100%;}
+		.num{float:none; background:none; padding-left:0; display:none;}
+		.navbar-default .navbar-nav > li{margin-bottom:18px;}
+		.navbar-collapse{position:absolute; z-index:9999; width:100%; background:rgba(0,156,235, 0.8); border:none; }  
+		.nav.navbar-nav.navbar-right{ width:100%;  padding:0 10px;}
+		.navbar-toggle .icon-bar{height:4px; width:32px;}
+		.navbar-default .navbar-toggle{border:none;}
+		.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{background:none; border:none;}
+		.navbar-default .navbar-toggle .icon-bar{background-color:#042d4f; }
+		.navbar-toggle{top:40px;}
+			.navbar-default .navbar-nav > li{margin-left:0; }
+	.navbar-default .navbar-nav > li > a{font-size:18px;}
+	.insta{ border:none; background-size:100% 100%; margin-top:0;padding-top:40px;}
+	.care{  margin-bottom:0; padding-bottom:30px ; text-align:start;}
+	.clean{margin-bottom:30px;}
+	.what-offer{ padding-top:40px; padding-bottom:2	0px;}
+	.offer{padding:0;}
+	.care p{padding:0 10px;}
+	.hand{background-position:right bottom;}
+	.carousel-control.right{width:auto; right:1%;}
+	.gr-tag{text-align:center;}
+	.modal-dialog{width:90%; margin:auto;}
+		}
+		
+		@media only screen and (max-width: 570px) {
+		.book{margin-top:30px;}	
+		.book h2{font-size:40px;}
+		.client-logo ul li{margin-left:0;width:100%; text-align:center;margin-top:10px;}
+		.navbar-brand img{width:70%;}
+		.navbar-toggle{top:26px;}
+		.book h2{font-size:32px;}
+		.offer{background-position:60% 0;}
+		.header{background-position:20% 0;}
+		.popup-con{padding-left:20px; padding-right:20px;}
+			}

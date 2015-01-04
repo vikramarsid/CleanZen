@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>CleanZen</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <link rel="shortcut icon" href="gfx/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="/stylesheet/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheet/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheet/style.css">
+    <link rel="stylesheet" href="/stylesheet/responsive.css">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/datepicker.css">
+    <link rel="stylesheet" href="/css/bootstrap.icons.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/datepicker.css">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+	<script src="/js/vendor/my.js"></script>
+	
+        
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+        <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script><!-- jQuery Form Validation code -->
+
+    <script>
+// When the browser is ready...
+    $(function() {
+    // Setup form validation on the #register-form element
+    $("#payment-form").validate({
+        ignore: [],
+        // Specify the validation rules
+        rules: {
+            num_bed: "required",
+            num_bath: "required",
+            extra_facility: "required",
+            Frequency: "required",
+            address: "required",
+            city: "required",
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                      required: true,
+                      number: true
+                    }
+        },
+        
+        // Specify the validation error messages
+        messages: {
+            num_bed: "Select Bedrooms",
+            num_bath: "Select Bathrooms",
+            extra_facility: "Select Extra Services",
+            Frequency: "Select Frequency",
+            address: "Address is required",
+            city: "Enter Your City",
+            name: "Enter Your Name"
+        },
+        
+       /* submitHandler: function(form) {
+            form.submit();
+        }*/
+    });
+    $('#other').hide();
+    $("#other-trigger" ).click(function() {
+        $('#other').show();
+    });
+    $(".non-other-trigger" ).click(function() {
+        $('#other').hide();
+    });
+    });
+
+    </script>
+    <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+<!-- jQuery is used only for this example; it isn't required to use Stripe -->
+
+    <style>
+.error {
+    color: #FF0000;
+    }
+    .payment-errors {
+    color: #FF0000;
+    }
+    .calendar-box {
+    display:none;
+    background-color:#fff;
+    border:1px solid #444;
+    position:absolute;
+    width:250px;
+    padding: 0 5px;
+    background: gainsboro;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 5;
+    }
+    .calendar-box select.calendar-month {
+    width:90px;
+    }
+    .calendar-box select.calendar-year {
+    width:70px;
+    }
+    .calendar-box .calendar-cancel {
+    width:100%;
+    }
+    .calendar-box table td {
+    width:14%;
+    }
+    .calendar-box .calendar-title {
+    text-align:center;
+    }
+    .calendar-box a {
+    text-decoration:none;
+    }
+    .calendar-box .today a {
+    padding:0 5px;
+    margin-left:-5px;
+    background-color:#ffe9c6;
+    } 
+    .calendar-box .selected a {
+    padding:0 5px;
+    margin-left:-5px;
+    background-color:#c9ff8b;
+    }
+
+    .counting input[type="radio"] {
+    display: none;
+    }
+    .serviceicons input[type="checkbox"] {
+    display: none;
+    }
+    .cleanservice input[type="radio"] {
+    display: none;
+    }
+    .col-fixed {
+    width: 13.6%;
+    }
+
+    .find-us-title {
+    margin-left: 15px;
+    }
+
+
+    .find-us-cont .question {
+    color: #F47C0C;
+    }
+
+    .findus-cont input[type="radio"] {
+    margin-top: 15px;
+    }
+    </style>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<!--  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>-->
+
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> <script>
+$(function() {
+    $( "#date" ).datepicker({dateFormat:'mm-dd-yy',minDate:0});
+
+    $( "#anim" ).change(function() {
+      $( "#date" ).datepicker( "option", "showAnim", $( this ).val() );
+    });
+    });
+</script> 
+    
+</head>
+<body>
+
+
+    <!--Top Header-->
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+<div id="box_wrapper">
+
+
+    <section id="topline" class="light_section table_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="./" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
+                    
+                </div>
+                <div class="col-sm-9 text-right">
+                    <span>
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-phone"></i> +1 (669)300-1234
+                    </span>
+                    <span>
+                        <a href="login" class="theme_button btn-sm"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
+                    </span>
+                     <span>
+                        <a href="register" class="theme_button btn-sm">Register</a>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <span id="toggle_mobile_menu"></span>
+                        <span id="toggle_search"></span>
+                        <div class="widget widget_search">
+                            <form role="search" method="get" id="searchform" class="searchform form-inline" action="quote">
+                                <div class="form-group">
+                                    <label class="screen-reader-text" for="search">Search for:</label>
+                                    <input type="text" value="" name="search" id="search" class="form-control" placeholder="ZipCode">
+                                </div>
+                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
+                            </form>
+                        </div>
+                        <nav id="mainmenu_wrapper">
+                            <ul id="mainmenu" class="nav sf-menu">
+                                <li class="active">
+                                    <a href="index">Home</a>
+                                </li>
+                                <li>
+                                    <a href="index#info">About</a>
+                                </li>
+                                <li>
+                                    <a href="index#services">Services</a>
+                                </li>
+                                <li>
+                                    <a href="index#prices">Prices</a>
+                                </li>
+                                <li>
+                                    <a href="quote">BookNow</a>
+                                </li>
+                                <li>
+                                    <a href="comingsoon">CleaningTips</a>
+                                </li>
+                                                                
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                 <li>
+                                    <a href="analysis">Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>  
+                        </nav>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+    
+<section class="light_section page404" id="content">
+    <div class="container">
+        <div class="innerpagewrap">
+            <h2 class="title txtleft">Create Your Booking</h2>
+
+
+            <form method="post" id="payment-form" action="/postbook">
+                <div class="row">
+                    <!--Leftside-->
+
+
+                    <div class="col-md-9">
+                        <div class="innerpagecontainer">
+                            <!--Step One-->
+
+
+                            <div class="bookingsteps">
+                                
+
+
+                                
+
+
+                                
+
+
+                                
+
+
+                                
+                            </div>
+                            <!--/Step One-->
+                            <!--Step Two-->
+
+
+                            <div class="bookingsteps">
+                                <h4><span>Step 2.</span>Your Home</h4>
+
+
+                                <div class="row pB15">
+                                    <div class="col-md-3">
+                                        <input type="text" placeholder="Address" name="address" class="wdthpercent100">
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <input type="text" placeholder="City" name="city" class="wdthpercent100">
+                                    </div>
+
+    <div class="col-md-3">
+        <select name="state" id="state" class="wdthpercent100 valid">
+            <option selected="">
+                State
+            </option>
+
+            <option value="Alabama">
+                Alabama
+            </option>
+
+            <option value="Alaska">
+                Alaska
+            </option>
+
+            <option value="Arizona">
+                Arizona
+            </option>
+
+            <option value="Arkansas">
+                Arkansas
+            </option>
+
+            <option value="California">
+                California
+            </option>
+
+            <option value="Colorado">
+                Colorado
+            </option>
+
+            <option value="Connecticut">
+                Connecticut
+            </option>
+
+            <option value="Delaware">
+                Delaware
+            </option>
+
+            <option value="District OfColumbia">
+                District OfColumbia
+            </option>
+
+            <option value="Florida">
+                Florida
+            </option>
+
+            <option value="Georgia">
+                Georgia
+            </option>
+
+            <option value="Hawaii">
+                Hawaii
+            </option>
+
+            <option value="Idaho">
+                Idaho
+            </option>
+
+            <option value="Illinois">
+                Illinois
+            </option>
+
+            <option value="Indiana">
+                Indiana
+            </option>
+
+            <option value="Iowa">
+                Iowa
+            </option>
+
+            <option value="Kansas">
+                Kansas
+            </option>
+
+            <option value="Kentucky">
+                Kentucky
+            </option>
+
+            <option value="Louisiana">
+                Louisiana
+            </option>
+
+            <option value="Maine">
+                Maine
+            </option>
+
+            <option value="Maryland">
+                Maryland
+            </option>
+
+            <option value="Massachusetts">
+                Massachusetts
+            </option>
+
+            <option value="Michigan">
+                Michigan
+            </option>
+
+            <option value="Minnesota">
+                Minnesota
+            </option>
+
+            <option value="Mississippi">
+                Mississippi
+            </option>
+
+            <option value="Missouri">
+                Missouri
+            </option>
+
+            <option value="Montana">
+                Montana
+            </option>
+
+            <option value="Nebraska">
+                Nebraska
+            </option>
+
+            <option value="Nevada">
+                Nevada
+            </option>
+
+            <option value="New Hampshire">
+                New Hampshire
+            </option>
+
+            <option value="New Jersey">
+                New Jersey
+            </option>
+
+            <option value="New Mexico">
+                New Mexico
+            </option>
+
+            <option value="New York">
+                New York
+            </option>
+
+            <option value="North Carolina">
+                North Carolina
+            </option>
+
+            <option value="North Dakota">
+                North Dakota
+            </option>
+
+            <option value="Oklahoma">
+                Oklahoma
+            </option>
+
+            <option value="Pennsylvania">
+                Pennsylvania
+            </option>
+
+            <option value="Rhode Island">
+                Rhode Island
+            </option>
+
+            <option value="South Carolina">
+                South Carolina
+            </option>
+
+            <option value="South Dakota">
+                South Dakota
+            </option>
+
+            <option value="Tennessee">
+                Tennessee
+            </option>
+
+            <option value="Texas">
+                Texas
+            </option>
+
+            <option value="Utah">
+                Utah
+            </option>
+
+            <option value="Vermont">
+                Vermont
+            </option>
+
+            <option value="Virginia">
+                Virginia
+            </option>
+
+            <option value="Washington">
+                Washington
+            </option>
+
+            <option value="West Virginia">
+                West Virginia
+            </option>
+
+            <option value="Wisconsin">
+                Wisconsin
+            </option>
+
+            <option value="Wyoming">
+                Wyoming
+            </option>
+        </select>
+    </div>
+
+
+                                    <div class="col-md-3">
+                                        <input type="text" placeholder="Zipcode" name="zipcode" class="wdthpercent100">
+                                    </div>
+                                </div>
+
+
+                                <p class="sqft">Size <input type="checkbox" value="" name="sqft" id="sqft"> I know My
+                                Square Footage</p>
+
+
+                                <div style="visibility:hidden;" id="square" class="sqft-selector">
+                                    <select name="sqft_value">
+                                        <option value="0">
+                                            &lt; 500
+                                        </option>
+
+                                        <option value="500">
+                                            500 - 1000
+                                        </option>
+
+                                        <option value="1000">
+                                            1000 - 2000
+                                        </option>
+
+                                        <option value="2000">
+                                            2000 - 3000
+                                        </option>
+
+                                        <option value="3000">
+                                            3000 - 4000
+                                        </option>
+
+                                        <option value="4000">
+                                            4000+
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/Step Two-->
+                            <!--Step Three-->
+
+
+                            <div class="bookingsteps">
+                                <h4><span>Step 3.</span>About You</h4>
+
+
+                                <div class="row pB15">
+                                    <div class="col-md-4">
+                                        <input type="text" placeholder="Name" name="name" id="name" class="wdthpercent100">
+                                    </div>
+
+
+                                    <div class="col-md-4">
+                                        <input type="email" placeholder="Email" name="email" class="wdthpercent100">
+                                    </div>
+
+
+                                    <div class="col-md-4">
+                                        <input type="tel" placeholder="Phone" name="phone" class="wdthpercent100">
+                                    </div>
+                                </div>
+
+
+                                <div class="row findus-cont">
+                                    <h4 class="find-us-title">How'd you find
+                                    us<span class="question">?</span></h4>
+
+
+                                    <div class="col-md-2 col-fixed non-other-trigger">
+                                        <input type="radio" value="facebook" name="findus">Facebook
+                                    </div>
+
+
+                                    <div class="col-md-2 col-fixed non-other-trigger">
+                                        <input type="radio" value="yelp" name="findus">Yelp
+                                    </div>
+
+
+                                    <div class="col-md-2 col-fixed non-other-trigger">
+                                        <input type="radio" value="google" name="findus">Google
+                                    </div>
+
+
+                                    <div class="col-md-2 col-fixed non-other-trigger">
+                                        <input type="radio" value="twitter" name="findus">Twitter
+                                    </div>
+
+
+                                    <div class="col-md-2 col-fixed">
+                                        <input type="radio" value="other" name="findus" id="other-trigger">Other
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <input type="text" name="other" id="other" class="wdthpercent100">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/Step Three-->
+                            <!--Step Four-->
+
+
+                            <div class="bookingsteps">
+                                <h4><span>Step 4.</span>Your Payment
+                                Method</h4>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        You won't be charged until the day of
+                                        your cleaning and you will instantly
+                                        recieve your reciept via email
+                                        <!--<p class="font13">and you'll revieve a reciept via email right after we do-->
+                                        <p>
+                                    </p></div>
+
+
+                                    <div class="col-md-6 txtright">
+                                        <span>This is a secure 256-bit
+                                        encrypted payment <img src="images/sslic.png" alt="SSL"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="securegreyroundbox">
+                                    <div class="secureimgbg">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <span class="payment-errors"></span>
+                                                <span class="payment-success"></span>
+                                                <input type="text" size="25" placeholder="Card Number*" class="card-number" autocomplete="off">
+
+                                                <p class="font11">The 16 digits
+                                                on the front of your credit
+                                                card.</p>
+                                            </div>
+
+
+                                            <div class="col-md-7">
+                                                <input type="text" size="4" placeholder="CVC*" class="card-cvc" autocomplete="off">
+                                                <span class="secureimg"><img src="images/creditcards.png" alt="Credit Cards"></span>
+                                                <span class="wdthpercent100"><img src="images/stripe.png" alt="Credit Cards"></span>
+
+                                                <p class="font11">Last 3 digits
+                                                displayed on the back of your
+                                                credit card.</p>
+
+
+                                                <div class="col-md-6 txtright">
+                                                <img src="images/cvc.png" class="cvc" alt="cvc">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Expiration Date<span class="require">*</span>
+                                                <select class="card-expiry-month">
+                                                    <option selected="">
+                                                        Month
+                                                    </option>
+
+                                                    <option value="01">
+                                                        January
+                                                    </option>
+
+                                                    <option value="02">
+                                                        February
+                                                    </option>
+
+                                                    <option value="03">
+                                                        March
+                                                    </option>
+
+                                                    <option value="04">
+                                                        April
+                                                    </option>
+
+                                                    <option value="05">
+                                                        May
+                                                    </option>
+
+                                                    <option value="06">
+                                                        June
+                                                    </option>
+
+                                                    <option value="07">
+                                                        July
+                                                    </option>
+
+                                                    <option value="08">
+                                                        August
+                                                    </option>
+
+                                                    <option value="09">
+                                                        September
+                                                    </option>
+
+                                                    <option value="10">
+                                                        October
+                                                    </option>
+
+                                                    <option value="11">
+                                                        November
+                                                    </option>
+
+                                                    <option value="12">
+                                                        December
+                                                    </option>
+                                                </select> <select class="card-expiry-year">
+                                                    <option selected="">
+                                                        Year
+                                                    </option>
+
+                                                    <option>
+                                                        2013
+                                                    </option>
+
+                                                    <option>
+                                                        2014
+                                                    </option>
+
+                                                    <option>
+                                                        2015
+                                                    </option>
+
+                                                    <option>
+                                                        2016
+                                                    </option>
+
+                                                    <option>
+                                                        2017
+                                                    </option>
+
+                                                    <option>
+                                                        2018
+                                                    </option>
+
+                                                    <option>
+                                                        2019
+                                                    </option>
+
+                                                    <option>
+                                                        2020
+                                                    </option>
+
+                                                    <option>
+                                                        2021
+                                                    </option>
+
+                                                    <option>
+                                                        2022
+                                                    </option>
+
+                                                    <option>
+                                                        2023
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/Step Four-->
+
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <input type="submit" value="Book Appointment" name="bookappointment" class="submit-button bookbtn">
+                                </div>
+                                
+                                <div class="col-md-3"><img src="images/badgesatisf.png" alt="Satisfaction">
+                                </div>
+                            </div>
+                            <!--What Happened Next-->
+
+
+                            <div class="nexthappen">
+                                <h4>What Happens Next?</h4>
+
+
+                                <p>We always do our best to accommodate every
+                                cleaning. If there are any scheduling conflicts
+                                we will contact you immediately to discuss
+                                other open time slots and make the adjustments
+                                that work best for you. Other than that you are
+                                good to go!</p>
+
+
+                                <p>Need more time? It's just $29 for every 30
+                                minutes after the max estimated time.</p>
+                            </div>
+                            <!--/What Happened Next-->
+                        </div>
+                    </div>
+                    <!--/Leftside-->
+                    <!--Rightside-->
+                   
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <footer id="footer" class="grey_section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_flickr">
+                        <h3 class="widget-title" style="color:#FFF">Flickr Widget</h3>
+                        <ul id="flickr"></ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 to_animate">
+
+                    <div class="widget widget_twitter">
+                        <h3 class="widget-title" style="color:#FFF">Twitter Widget</h3>
+                        <div class="twitter"></div>
+                    </div>
+
+                </div>
+                    
+                    
+                
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_mailchimp">
+                        <h3 class="widget-title" style="color:#FFF">Subscribe</h3>
+                        <p>Please, subscribe to our latest news to be updated.</p>
+                        <form id="signup" action="/" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input name="email" id="mailchimp_email" type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <button type="submit" class="theme_button">Send</button>
+                            <div id="response"></div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_text">
+                        <h3 class="widget-title">Company Info</h3>
+                        <p>CleanZen is the most trusted name among residential cleaning companies because we consistently deliver value through quality service and premium products that meet or exceed our customers’ expectations.</p>
+                        <p> All of this accentuates why we are a top cleaning company. </p>
+                        <p>
+                            <a class="socialico-facebook" href="#" title="Facebook" data-toggle="tooltip">#</a>
+                            <a class="socialico-twitter" href="#" title="Twitter" data-toggle="tooltip">#</a>
+                            <a class="socialico-google" href="#" title="Google" data-toggle="tooltip">#</a>
+                        </p>
+                    </div>
+                </div>
+                    
+                    
+                
+            
+            </div>
+        </div>
+    </footer>
+
+
+    <section id="copyright" class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2014 - <strong>Cleanzen</strong></p>
+                </div>
+                               
+            </div>
+        </div>
+    </section>
+ 
+
+</div><!-- eof #box_wrapper -->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+
+        <!-- libraries -->
+        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/vendor/jquery.appear.js"></script>
+
+        <!-- superfish menu  -->
+        <script src="/js/vendor/jquery.hoverIntent.js"></script>
+        <script src="/js/vendor/superfish.js"></script>
+        
+        <!-- page scrolling -->
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
+        <script src="/js/vendor/jquery.ui.totop.js"></script>
+        <script src="/js/vendor/jquery.localscroll-min.js"></script>
+        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
+        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
+
+        <!-- widgets -->
+        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
+        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
+        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
+        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
+        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
+        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
+        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
+        <script src='twitter/jquery.tweet.min.js'></script><!-- twitter -->
+
+        <!-- sliders, filters, carousels -->
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src='/js/vendor/owl.carousel.min.js'></script>
+        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
+        <script src='/js/vendor/jquery.flexslider-min.js'></script>
+        <script src='/js/vendor/jquery.bxslider.min.js'></script>
+
+        <!-- custom scripts -->
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+        <!-- Load jQuery and bootstrap datepicker scripts -->
+        <!--<script src="/js/jquery-1.9.1.min.js"></script>-->
+        <script src="/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript">
+         // When the document is ready
+         $(document).ready(function () {
+          $('#example1').datepicker({
+          format: "dd/mm/yyyy"
+          });  
+          });
+        //oncheck
+        $("#sqft").change(function() {
+    	if($("#sqft").prop("checked")) {
+        $(".sqft-selector").css("visibility", "visible");
+        //$(window).data("sqft", parseInt($("#sqft-selector").val()));
+   		 } else {
+        $(".sqft-selector").css("visibility", "hidden");
+        //$(window).data("sqft", null);
+   		 }
+});
+       </script>
+       
+    </body>
+</html>

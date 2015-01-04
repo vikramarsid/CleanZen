@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>CleanZen</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <link rel="shortcut icon" href="gfx/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="/stylesheet/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheet/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheet/style.css">
+    <link rel="stylesheet" href="/stylesheet/responsive.css">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.icons.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/datepicker.css">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+	<script src="/js/vendor/my.js"></script>
+	<script src="/js/bootstrap-datepicker.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+        <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script><!-- jQuery Form Validation code -->
+
+    <script>
+// When the browser is ready...
+    $(function() {
+    // Setup form validation on the #register-form element
+    $("#payment-form").validate({
+        ignore: [],
+        // Specify the validation rules
+        rules: {
+            num_bed: "required",
+            num_bath: "required",
+            extra_facility: "required",
+            Frequency: "required",
+            address: "required",
+            city: "required",
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                      required: true,
+                      number: true
+                    }
+        },
+        
+        // Specify the validation error messages
+        messages: {
+            num_bed: "Select Bedrooms",
+            num_bath: "Select Bathrooms",
+            extra_facility: "Select Extra Services",
+            Frequency: "Select Frequency",
+            address: "Address is required",
+            city: "Enter Your City",
+            name: "Enter Your Name"
+        },
+        
+       /* submitHandler: function(form) {
+            form.submit();
+        }*/
+    });
+    $('#other').hide();
+    $("#other-trigger" ).click(function() {
+        $('#other').show();
+    });
+    $(".non-other-trigger" ).click(function() {
+        $('#other').hide();
+    });
+    });
+
+    </script>
+    <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+<!-- jQuery is used only for this example; it isn't required to use Stripe -->
+
+    <style>
+.error {
+    color: #FF0000;
+    }
+    .payment-errors {
+    color: #FF0000;
+    }
+    .calendar-box {
+    display:none;
+    background-color:#fff;
+    border:1px solid #444;
+    position:absolute;
+    width:250px;
+    padding: 0 5px;
+    background: gainsboro;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 5;
+    }
+    .calendar-box select.calendar-month {
+    width:90px;
+    }
+    .calendar-box select.calendar-year {
+    width:70px;
+    }
+    .calendar-box .calendar-cancel {
+    width:100%;
+    }
+    .calendar-box table td {
+    width:14%;
+    }
+    .calendar-box .calendar-title {
+    text-align:center;
+    }
+    .calendar-box a {
+    text-decoration:none;
+    }
+    .calendar-box .today a {
+    padding:0 5px;
+    margin-left:-5px;
+    background-color:#ffe9c6;
+    } 
+    .calendar-box .selected a {
+    padding:0 5px;
+    margin-left:-5px;
+    background-color:#c9ff8b;
+    }
+
+    .counting input[type="radio"] {
+    display: none;
+    }
+    .serviceicons input[type="checkbox"] {
+    display: none;
+    }
+    .cleanservice input[type="radio"] {
+    display: none;
+    }
+    .col-fixed {
+    width: 13.6%;
+    }
+
+    .find-us-title {
+    margin-left: 15px;
+    }
+
+
+    .find-us-cont .question {
+    color: #F47C0C;
+    }
+
+    .findus-cont input[type="radio"] {
+    margin-top: 15px;
+    }
+    </style>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<!--  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>-->
+
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> <script>
+$(function() {
+    $( "#date" ).datepicker({dateFormat:'mm-dd-yy',minDate:0});
+
+    $( "#anim" ).change(function() {
+      $( "#date" ).datepicker( "option", "showAnim", $( this ).val() );
+    });
+    });
+</script> 
+    
+</head>
+<body>
+
+
+    <!--Top Header-->
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+<div id="box_wrapper">
+
+
+    <section id="topline" class="light_section table_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="./" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
+                    
+                </div>
+                <div class="col-sm-9 text-right">
+                    <span>
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-phone"></i> +1 (669)300-1234
+                    </span>
+                    <span>
+                        <a href="login" class="theme_button btn-sm"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
+                    </span>
+                     <span>
+                        <a href="register" class="theme_button btn-sm">Register</a>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <span id="toggle_mobile_menu"></span>
+                        <span id="toggle_search"></span>
+                        <div class="widget widget_search">
+                            <form role="search" method="get" id="searchform" class="searchform form-inline" action="quote">
+                                <div class="form-group">
+                                    <label class="screen-reader-text" for="search">Search for:</label>
+                                    <input type="text" value="" name="search" id="search" class="form-control" placeholder="ZipCode">
+                                </div>
+                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
+                            </form>
+                        </div>
+                       <nav id="mainmenu_wrapper">
+                            <ul id="mainmenu" class="nav sf-menu">
+                                <li class="active">
+                                    <a href="index">Home</a>
+                                </li>
+                                <li>
+                                    <a href="index#info">About</a>
+                                </li>
+                                <li>
+                                    <a href="index#services">Services</a>
+                                </li>
+                                <li>
+                                    <a href="index#prices">Prices</a>
+                                </li>
+                                <li>
+                                    <a href="quote">BookNow</a>
+                                </li>
+                                <li>
+                                    <a href="comingsoon">CleaningTips</a>
+                                </li>
+                                                                
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                 <li>
+                                    <a href="analysis">Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>  
+                        </nav>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+    
+<section id="content" class="light_section page404">
+ <!--Content Wrapper-->
+   <div class="container">
+        <div class="innerpagewrap">
+            <h2 class="title">Our Services</h2>
+            <div class="innerpagecontainer">
+                <!--First Section-->
+                <div class="servicepagesec">
+                    <h4>GET YOUR PLACE CLEANED FOR ONE FLAT RATE!</h4>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="areas">
+                                <ul>
+                                    <li><span class="iconser"><img src="/images/bed.png" alt=""></span><span class="textser">Bedrooms</span></li>
+                                    <li><span class="iconser"><img src="/images/toilet.png" alt=""></span><span class="textser">Bathrooms</span></li>
+                                    <li><span class="iconser"><img src="/images/kitchen.png" alt=""></span><span class="textser">Kitchen</span></li>
+                                    <li><span class="iconser"><img src="/images/sofa.png" alt=""></span><span class="textser">Living Areas</span></li>
+                                </ul>
+                            <div class="clearfix"></div>
+                            </div>
+                            <p class="txtcenter pT40">Our standard cleanings cover all of the essential areas of your home. <br>Weather it be one bathroom or the entire house, we bring <br>quality and simplicity to house cleaning.</p>
+                            <!-- <p class="txtcenter pT15">On the Surface Cleaning of all essential areas of your home</p>
+                            <p class="colororange pT10">All Taken Care of In Our Standard Cleanings</p> -->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bluebox mT50">
+                                <div class="blueboxwhtarea">
+                                    <div class="clipboardimg"><img src="/images/clipboard.png" alt=""></div>
+                                    <div class="servicetype">
+                                        <ul>
+                                            <li>Dusting</li>
+                                            <li>Mopping</li>
+                                            <li>Vacuuming</li>
+                                            <li>Trash</li>
+                                            <li>Clutter</li>
+                                        <div class="clearfix"></div>
+                                        </ul>
+                                        <p class="colororange pT15 txtupper txtleft font19">All Taken Care of!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <!--/First Section-->
+                <!--Second Section-->
+                <div class="servicepagesec">
+                    <h4>ADD ANY EXTRA SERVICE THAT YOU MAY NEED</h4>
+                    <div class="serviceicons">
+                      <img src="/images/stretch.png" alt="range">
+<div class="clearfix"></div>
+                    </div>
+                    <p class="pT15 font19 txtupper"><span class="colororange">OR</span> SELECT THEM ALL FOR A FULL MOVEOUT(IN) / DEEP CLEANING</p>
+                </div>
+                <!--/Second Section-->
+                <!--Third Section-->
+                <div class="servicepagesec">
+                    <h4>Don’t Worry yourself with upkeep</h4>
+                    <p class="font19 txtupper">Let us keep your place sparkling clean regularly</p>
+                    <div class="cleanservice">
+                    
+                    <img src="/images/strech2.png" alt="tariff">
+<div class="clearfix"></div>
+                    </div>
+                </div>
+                <!--/Third Section-->
+                <!--Fourth Section-->
+                <div class="servicepagesecbtm">
+                    <!--Leftside-->
+                    <div class="leftsec">
+                        <h4>SERVICES WE DON'T OFFER:</h4>
+                        <ul>
+                            <li>Laundry</li>
+                            <li>Dishes (We will only LOAD The Dishwasher)</li>
+                            <li>Carpet Cleaning</li>
+                            <li>Exterior Windows</li>
+                        </ul>
+                        <div class="askques">
+                            <p>Any Questions?  Call Us!</p>
+                            <p class="colororange">(669) 300-7235</p>
+                        </div>
+                    </div>
+                    <!--/Leftside-->
+                    <!--Rightside-->
+                    <div class="rightsec">
+                        <h4>Other Than That...<br>
+                        We’ll Take Care of The Rest!</h4>
+                        <div class="btmsection">
+                            <span>So Get Started!</span>
+                            <a href="/book" class="booknowbtn">Book Now</a>
+                        </div>
+                    </div>
+                    <!--/Rightside-->
+                <div class="clearfix"></div>
+                </div>
+                <!--/Fourth Section-->
+                
+            </div>
+        </div>
+    </div>
+    <!--/Content Wrapper-->    
+    
+    </footer>
+
+
+    <section id="copyright" class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2014 - <strong>Cleanzen</strong></p>
+                </div>
+                               
+            </div>
+        </div>
+    </section>
+ 
+
+</div><!-- eof #box_wrapper -->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+
+        <!-- libraries -->
+        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/vendor/jquery.appear.js"></script>
+
+        <!-- superfish menu  -->
+        <script src="/js/vendor/jquery.hoverIntent.js"></script>
+        <script src="/js/vendor/superfish.js"></script>
+        
+        <!-- page scrolling -->
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
+        <script src="/js/vendor/jquery.ui.totop.js"></script>
+        <script src="/js/vendor/jquery.localscroll-min.js"></script>
+        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
+        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
+
+        <!-- widgets -->
+        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
+        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
+        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
+        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
+        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
+        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
+        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
+        <script src='twitter/jquery.tweet.min.js'></script><!-- twitter -->
+
+        <!-- sliders, filters, carousels -->
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src='/js/vendor/owl.carousel.min.js'></script>
+        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
+        <script src='/js/vendor/jquery.flexslider-min.js'></script>
+        <script src='/js/vendor/jquery.bxslider.min.js'></script>
+
+        <!-- custom scripts -->
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+        
+
+    </body>
+</html>

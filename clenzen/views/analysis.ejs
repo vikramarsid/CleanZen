@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>CleanZen</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+        <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- login modal -->
+
+<div class="modal fade order-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                 <h4 class="modal-title" id="loginModalLabel">Log<span class="highlight"> In</span></h4>
+            </div>
+            <form role="form" action="/postLogin" method="post">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>                       
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="theme_button"><i class="rt-icon-ok"></i> Login</button>
+                    <a href="/" class="theme_button" data-dismiss="modal"><i class="rt-icon-times"></i> Cancel</a>
+                </div>            
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="box_wrapper">
+
+
+    <section id="topline" class="light_section table_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="/" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
+                    
+                </div>
+                
+
+    
+                <div class="col-sm-9 text-right">
+                <span>
+                  <%if(name!==null){%>
+                    <p style="font-weight:">Hi  <%=name%>!  <a href="/logout" style="cursor:pointer; color:blue">Logout</a>  <a href="/myhome" style="cursor:pointer; color:green">My CleanZen</a></p>
+                 <%}%>
+                    </span>
+                    <span>
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-phone"></i> +1 (669)300-1234
+                    </span>
+                    <span>
+                        <a href="#" class="theme_button btn-sm" data-toggle="modal" data-target=".order-modal"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
+                    </span>
+                     <span>
+                        <a href="register" class="theme_button btn-sm">Register</a>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <span id="toggle_mobile_menu"></span>
+                        <span id="toggle_search"></span>
+                        <div class="widget widget_search">
+                            <form role="search" method="get" id="searchform" class="searchform form-inline" action="quote">
+                                <div class="form-group">
+                                    <label class="screen-reader-text" for="search">Search for:</label>
+                                    <input type="text" value="" name="search" id="search" class="form-control" placeholder="ZipCode">
+                                </div>
+                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
+                            </form>
+                        </div>
+                        <nav id="mainmenu_wrapper">
+                            <ul id="mainmenu" class="nav sf-menu">
+                                <li class="active">
+                                    <a href="index">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#info">About</a>
+                                </li>
+                                <li>
+                                    <a href="#service">Services</a>
+                                </li>
+                                <li>
+                                    <a href="#prices">Prices</a>
+                                </li>
+                                <li>
+                                    <a href="quote">BookNow</a>
+                                </li>
+                                <li>
+                                    <a href="comingsoon">CleaningTips</a>
+                                </li>
+                                                                
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="analysis">Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>  
+                        </nav>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="widget widget_text">
+                        <h3>How Much Does House Cleaning Service Cost?</h3>
+                        <div class="entry-thumbnail">
+                            <div id="myChartDiv"></div>
+                        </div>
+<p>
+Utilizing a home cleaning service can relieve the burden of many household chores, adding convenience and comfort to your daily life. House cleaners provide a range of service levels and frequency, and pricing often depends on influences such as the number of occupants and size of your home.
+</p>
+<h4>Building Types</h4>
+
+<p>Cleaning rates for single-family houses average $126 nationally, compared to $97 for apartments and $154 for businesses. Service options vary with building types, since the tasks performed at homes and businesses may not be relevant to one another. Cleaning contractors generally use pricing standards for general housekeeping tasks, though overall rates may vary with the number of rooms and occupants at the home and any special circumstances or requirements.</p>
+ 
+<h4>Building Levels</h4>
+
+<p>While the number of rooms in your home contributes to the pricing of your cleaning contract, the number of levels in the home may also affect rates. The added requirement for cleaning staff to move equipment and supplies over several floors can increase the fees for your services. In the U.S., house cleaning services average $117 for a single story home, compared to $124 for two stories, $128 for three, and $127 for a home with four stories or more.</p>
+ 
+<h4>Square Footage of Your Home</h4>
+
+<p>The overall size of the service area in your home is a consideration in the pricing of your cleaning services. While the number of rooms and levels indicate the general demands of the job, the overall size of your rooms and home help determine the time and supplies needed to complete each cleaning assignment. The average price for cleaning areas less than 1,000 square feet is $116, and the $122 for a 1,000-2,000 square foot home, $127 for 2,000-3,000 square feet, and $136 for homes of 3,000 square feet or more.</p>
+ 
+<h4>Bedrooms</h4>
+
+<p>The number of bedrooms in a home is a good measure of occupancy and usage, and is often a criterion for pricing the cleaning of your home. While your specific needs for cleaning bedrooms may influence costs, the number of them is often a factor in standard rates. Cleaning a one-bedroom home costs an average of $110 and a two-bedroom home, $117 versus $124 for three bedrooms and $133 for four.</p>
+ 
+<h4>Bathrooms</h4>
+
+<p>The number of bathrooms in your home will directly affect overall house cleaning rates. Cleaning a bathroom requires specific services and supplies, so more bathrooms translate to higher costs. Rates for homes with one bathroom average $112 nationally, with rates for two bathroom homes at $121, and $129 for three bath homes.</p>
+ 
+<h4>Pets</h4>
+
+<p>Often, cleaning services charge a premium for working in homes with pets. The number and type of pets in your home will affect the rate, which averages $120 for a home with cats and $137 for one with dogs. Discuss with your provider how your pets contribute to calculating your cleaning fees, and whether you will need to take measures to confine them during your housekeeping visits.</p>
+ 
+<h4>Frequency of Cleaning Visits</h4>
+
+<p>Cleaning providers typically offer several options for the frequency of cleaning visits, and you may be able to arrange which tasks are performed at specific intervals. The average national rate for daily home cleaning is $112, compared to $110 for weekly intervals and $118 for monthly appointments. Periodic or seasonal tasks may be incorporated into your regular cleaning schedule and rates, or scheduled and billed on an as-needed basis.</p>
+ 
+<h4>Customizing and Planning for Your House Cleaning Services</h4>
+
+<p>Home cleaning providers offer a number of service and scheduling options that can be customized to fit your needs and lifestyle. The nature and frequency of your cleaning visits may influence whether you have a full house cleaning at each visit, or if some tasks are performed only at certain intervals. Standard rates provide general pricing guidelines, but if you require extra periodic services, specialized cleaning products, unusual scheduling, or have accessibility issues, your service provider may charge additional fees. Assessing the special requirements of your job will help you plan and budget for quality, convenient home cleaning services.
+</p>
+                                                   
+                    </div>
+                </div>
+
+                               
+                
+            </div>
+            
+        </div>
+    </section>
+
+
+    
+    <footer id="footer" class="grey_section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_flickr">
+                        <h3 class="widget-title">Flickr Widget</h3>
+                        <ul id="flickr"></ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 to_animate">
+
+                    <div class="widget widget_twitter">
+                        <h3 class="widget-title">Twitter Widget</h3>
+                        <div class="twitter"></div>
+                    </div>
+
+                </div>
+                    
+                    
+                
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_mailchimp">
+                        <h3 class="widget-title">Subscribe</h3>
+                        <p>Please, subscribe to our latest news to be updated.</p>
+                        <form id="signup" action="/" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input name="email" id="mailchimp_email" type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <button type="submit" class="theme_button">Send</button>
+                            <div id="response"></div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_text">
+                        <h3 class="widget-title">Company Info</h3>
+                        <p>CleanZen is the most trusted name among residential cleaning companies because we consistently deliver value through quality service and premium products that meet or exceed our customers’ expectations.</p>
+                        <p> All of this accentuates why we are a top cleaning company. </p>
+                        <p>
+                            <a class="socialico-facebook" href="#" title="Facebook" data-toggle="tooltip">#</a>
+                            <a class="socialico-twitter" href="#" title="Twitter" data-toggle="tooltip">#</a>
+                            <a class="socialico-google" href="#" title="Google" data-toggle="tooltip">#</a>
+                        </p>
+                    </div>
+                </div>
+                    
+                    
+                
+            
+            </div>
+        </div>
+    </footer>
+
+
+    <section id="copyright" class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2014 - <strong>CleanZen</strong></p>
+                </div>
+                               
+            </div>
+        </div>
+    </section>
+ 
+
+</div><!-- eof #box_wrapper -->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+
+        <!-- libraries -->
+        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/vendor/jquery.appear.js"></script>
+
+        <!-- superfish menu  -->
+        <script src="/js/vendor/jquery.hoverIntent.js"></script>
+        <script src="/js/vendor/superfish.js"></script>
+        
+        <!-- page scrolling -->
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
+        <script src="/js/vendor/jquery.ui.totop.js"></script>
+        <script src="/js/vendor/jquery.localscroll-min.js"></script>
+        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
+        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
+
+        <!-- widgets -->
+        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
+        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
+        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
+        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
+        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
+        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
+        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
+        <script src='twitter/jquery.tweet.min.js'></script><!-- twitter -->
+
+        <!-- sliders, filters, carousels -->
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src='/js/vendor/owl.carousel.min.js'></script>
+        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
+        <script src='/js/vendor/jquery.flexslider-min.js'></script>
+        <script src='/js/vendor/jquery.bxslider.min.js'></script>
+
+        <!-- custom scripts -->
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/zingchart-html5-min.js"></script>
+        <script src="/js/license.js"></script>
+
+        <script>
+     var myChart = {
+"background-color":"white",
+"graphset":[
+    {
+        "type":"area",
+        "background-color":"none",
+        "border-bottom":"2px solid black",
+        "title":{
+            "text":"House Cleaning Prices (National)",
+            "align":"left",
+            "font-family":"Coustard",
+            "font-color":"#666666",
+            "font-size":"16px",
+            "font-weight":"bold",
+            "padding":"20px",
+            "background-color":"#e2f4fb",
+            "border-bottom":"1px solid gray"
+        },
+        "labels":[
+            {
+                "text":"COST:",
+                "align":"right",
+                "font-family":"Coustard",
+                "font-weight":"bold",
+                "font-color":"#666666",
+                "font-size":"10px",
+                "background-color":"none",
+                "x":"6%",
+                "y":"19%"
+            },
+            {
+                "text":"$122 per service",
+                "font-family":"Coustard",
+                "font-weight":"bold",
+                "font-color":"#3e8099",
+                "font-size":"24px",
+                "background-color":"none",
+                "x":"5%",
+                "y":"25%"
+            }
+        ],
+        "tooltip":{
+            "background-color":"#3e8099",
+            "shadow":"false",
+            "text":"%v Owners have paid %data-costrange",
+            "rules":[
+                {
+                    "rule":"%v <= 12",
+                    "visible":"false"
+                }
+            ]
+        },
+        "plotarea":{
+            "margin":"50px 10px 50px 10px"
+        },
+        "plot":{
+            "aspect":"spline",
+            "active-area":"true",
+            "line-width":"0",
+            "step-start":"after",
+            "background-color":"#dee9ec #54c8e9",
+            "background-image":"http://i.imgur.com/ibMiNY5.png",
+            "marker":{
+                "type":"circle",
+                "shadow":"false",
+                "background-color":"#3e8099",
+                "size":5,
+                "border-width":0,
+                "rules":[
+                    {
+                        "rule":"%v >= 50",
+                        "type":"circle",
+                        "background-color":"#3e8099",
+                        "shadow":"false",
+                        "size":10
+                    },
+                    {
+                        "rule":"%v <= 16",
+                        "visible":0
+                    }
+                ]
+            }
+        },
+        "scale-y":{
+            "values":"0:60:10",
+            "line-color":"none",
+            "tick":{
+                "visible":false
+            },
+            "item":{
+                "visible":false
+            },
+            "guide":{
+                "visible":false
+            }
+        },
+        "scale-x":{
+            "values":"0:12000:3000",
+            "line-color":"none",
+            "tick":{
+                "visible":false
+            },
+            "item":{
+                "visible":false
+            },
+            "guide":{
+                "visible":false
+            },
+            "markers":[
+                {
+                    "type":"area",
+                    "range":[1,3],
+                    "placement":"top",
+                    "background-color":"none #ffffff",
+                    "alpha":"0.5"
+                }
+            ]
+        },
+        "series":[
+            {
+                "values":[0,20,53,20,0],
+                "data-costrange":["","less than $94","between $94 - $159","more than $159",""]
+            }
+        ],
+        "arrows":[
+            {
+                "from":"node:plot=0,index=2",
+                "to":{
+                    "x":"20%",
+                    "y":"21.5%"
+                },
+                "background-color":"#3e8099 transparent",
+                "fill-angle":"45",
+                "border-width":"0px",
+                "z-index":"-1"
+            }
+        ],
+        "source":{
+            "text":"Total Quotes Analysed : 42000 | Average:$122 | Range: $94-$159",
+            "font-family":"Coustard",
+            "font-color":"#666666",
+            "font-weight":"light",
+            "align":"left",
+            "padding-left":"20px",
+            "background-color":"#e2f4fb",
+            "height":"50px",
+            "border-top":"1px solid gray",
+            "border-bottom":"1px solid gray"
+        }
+    }
+]
+};
+    window.onload=function(){
+    zingchart.render({
+        id : "myChartDiv",
+        height : 450,
+        width : 600,
+        data : myChart
+        }); 
+    };
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>CleanZen</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+        <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- login modal -->
+
+<div class="modal fade order-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                 <h4 class="modal-title" id="loginModalLabel">Cleaners<span class="highlight"> Service</span> Order</h4>
+            </div>
+            <form role="form" action="/postLogin" method="post">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>                       
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="theme_button"><i class="rt-icon-ok"></i> Login</button>
+                    <a href="/" class="theme_button" data-dismiss="modal"><i class="rt-icon-times"></i> Cancel</a>
+                </div>            
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="box_wrapper">
+
+
+    <section id="topline" class="light_section table_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="/" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
+                    
+                </div>
+                
+
+    
+                <div class="col-sm-9 text-right">
+                <span>
+                  <%if(name!==null){%>
+    				<p style="font-weight:">Hi  <%=name%>!  <a href="/logout" style="cursor:pointer; color:blue">Logout</a>  <a href="/mycleanzen" style="cursor:pointer; color:green">My CleanZen</a></p>
+   				 <%}%>
+                    </span>
+                    <span>
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-phone"></i> +1 (669)300-1234
+                    </span>
+                    <span>
+                        <a href="#" class="theme_button btn-sm" data-toggle="modal" data-target=".order-modal"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
+                    </span>
+                     <span>
+                        <a href="register" class="theme_button btn-sm">Register</a>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <span id="toggle_mobile_menu"></span>
+                        <span id="toggle_search"></span>
+                        <div class="widget widget_search">
+                            <form role="search" method="get" id="searchform" class="searchform form-inline" action="quote">
+                                <div class="form-group">
+                                    <label class="screen-reader-text" for="search">Search for:</label>
+                                    <input type="text" value="" name="search" id="search" class="form-control" placeholder="Zip Code">
+                                </div>
+                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
+                            </form>
+                        </div>
+                       <nav id="mainmenu_wrapper">
+                            <ul id="mainmenu" class="nav sf-menu">
+                                <li class="active">
+                                    <a href="index">Home</a>
+                                </li>
+                                <li>
+                                    <a href="index#info">About</a>
+                                </li>
+                                <li>
+                                    <a href="index#services">Services</a>
+                                </li>
+                                <li>
+                                    <a href="index#prices">Prices</a>
+                                </li>
+                                <li>
+                                    <a href="quote">BookNow</a>
+                                </li>
+                                <li>
+                                    <a href="comingsoon">CleaningTips</a>
+                                </li>
+                                                                
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                 <li>
+                                    <a href="analysis">Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>  
+                        </nav>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="breadcrumbs" class="light_section with_bottom_border">
+        <div class="container">
+       
+            <div class="row">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="active"><h1>Contact Us</h1></li>
+                    </ol>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+<section id="map" class="grey_section"></section>
+
+<section id="content" class="light_section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2 class="section_header">Contact Us</h2>
+                <p>Please use the contact form below if you have any questions or requests, concerning our services.We will respond to your message within 24 hours.Above you can find a quick roadmap to get to our office.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            
+
+            <div class="widget col-sm-6 to_animate">
+                <form class="contact-form" method="post" action="/">
+                    <p class="contact-form-name">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Name">
+                    </p>
+                    <p class="contact-form-email">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Email">
+                    </p>
+                    <p class="contact-form-subject">
+                        <label for="subject">Subject <span class="required">*</span></label>
+                        <input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Subject">
+                    </p>
+                    <p class="contact-form-message">
+                        <label for="message">Message</label>
+                        <textarea aria-required="true" rows="8" cols="45" name="message" id="message" class="form-control" placeholder="Message"></textarea>
+                    </p>
+                    <p class="contact-form-submit vertical-margin-40">
+                        <!-- <input type="submit" value="Send" id="contact_form_submit" name="contact_submit" class="theme_button"> -->
+                        <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button"><i class="rt-icon-sent"></i> Send!</button>
+                    </p>
+                </form>
+            </div>
+                    
+
+            <div class="widget widget_contact col-sm-6 to_animate">
+                <h3>Contact Info</h3>
+                <p>Mail to us at below address, we are waiting for you !!!!
+                <br><br>
+                    <i class="rt-icon-device-phone"></i><strong>Phone:</strong> +12 345 678 9123
+                </p>
+                <p>
+                    <i class="rt-icon-pencil"></i><strong>Email:</strong> <a href="mailto:info@cleanzen.com">info@cleanzen.mybluemix.net</a>
+                </p>
+                <p>
+                    <i class="rt-icon-globe-outline"></i><strong>Website: </strong><a href="http://cleanzen.mybluemix.net/">http://cleanzen.mybluemix.net</a>
+                </p>
+                <p>
+                    <i class="rt-icon-location-arrow-outline"></i><strong>Address:</strong> 4321 San Fernando,San Jose CA - 95112 USA. 
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+    <footer id="footer" class="grey_section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_flickr">
+                        <h3 class="widget-title">Flickr Widget</h3>
+                        <ul id="flickr"></ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 to_animate">
+
+                    <div class="widget widget_twitter">
+                        <h3 class="widget-title">Twitter Widget</h3>
+                        <div class="twitter"></div>
+                    </div>
+
+                </div>
+                    
+                    
+                
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_mailchimp">
+                        <h3 class="widget-title">Subscribe</h3>
+                        <p>Please, subscribe to our latest news to be updated.</p>
+                        <form id="signup" action="/" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input name="email" id="mailchimp_email" type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <button type="submit" class="theme_button">Send</button>
+                            <div id="response"></div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_text">
+                        <h3 class="widget-title">Company Info</h3>
+                        <p>CleanZen is the most trusted name among residential cleaning companies because we consistently deliver value through quality service and premium products that meet or exceed our customers’ expectations.</p>
+                        <p> All of this accentuates why we are a top cleaning company. </p>
+                        <p>
+                            <a class="socialico-facebook" href="#" title="Facebook" data-toggle="tooltip">#</a>
+                            <a class="socialico-twitter" href="#" title="Twitter" data-toggle="tooltip">#</a>
+                            <a class="socialico-google" href="#" title="Google" data-toggle="tooltip">#</a>
+                        </p>
+                    </div>
+                </div>
+                    
+                    
+                
+            
+            </div>
+        </div>
+    </footer>
+
+
+    <section id="copyright" class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2014 - <a href="/">CleanZen</a></p>
+                </div>
+                               
+            </div>
+        </div>
+    </section>
+ 
+
+</div><!-- eof #box_wrapper -->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+
+        <!-- libraries -->
+        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/vendor/jquery.appear.js"></script>
+
+        <!-- superfish menu  -->
+        <script src="/js/vendor/jquery.hoverIntent.js"></script>
+        <script src="/js/vendor/superfish.js"></script>
+        
+        <!-- page scrolling -->
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
+        <script src="/js/vendor/jquery.ui.totop.js"></script>
+        <script src="/js/vendor/jquery.localscroll-min.js"></script>
+        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
+        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
+
+        <!-- widgets -->
+        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
+        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
+        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
+        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
+        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
+        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
+        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
+        <script src='twitter/jquery.tweet.min.js'></script><!-- twitter -->
+
+        <!-- sliders, filters, carousels -->
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src='/js/vendor/owl.carousel.min.js'></script>
+        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
+        <script src='/js/vendor/jquery.flexslider-min.js'></script>
+        <script src='/js/vendor/jquery.bxslider.min.js'></script>
+
+        <!-- custom scripts -->
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+        <!-- Map Scripts -->
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript">
+            var lat;
+            var lng;
+            var map;
+            var styles = [{"stylers":[{"saturation":-100},{"gamma":1}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"saturation":50},{"gamma":0},{"hue":"#50a5d1"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"color":"#333333"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"weight":0.5},{"color":"#333333"}]},{"featureType":"transit.station","elementType":"labels.icon","stylers":[{"gamma":1},{"saturation":50}]}];
+
+            //type your address after "address="
+            jQuery.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=san jose, san jose state university', function(data) {
+                lat = data.results[0].geometry.location.lat;
+                lng = data.results[0].geometry.location.lng;
+            }).complete(function(){
+                dxmapLoadMap();
+            });
+
+            function attachSecretMessage(marker, message)
+            {
+                var infowindow = new google.maps.InfoWindow(
+                    { content: message
+                    });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map,marker);
+                });
+            }
+
+            window.dxmapLoadMap = function()
+            {
+                var center = new google.maps.LatLng(lat, lng);
+                var settings = {
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    zoom: 16,
+                    draggable: false,
+                    scrollwheel: false,
+                    center: center,
+                    styles: styles 
+                };
+                map = new google.maps.Map(document.getElementById('map'), settings);
+
+                var marker = new google.maps.Marker({
+                    position: center,
+                    title: 'Map title',
+                    map: map
+                });
+                marker.setTitle('Map title'.toString());
+            //type your map title and description here
+            attachSecretMessage(marker, '<h3>Map title</h3>Map HTML description');
+            }
+        </script>
+
+    </body>
+</html>

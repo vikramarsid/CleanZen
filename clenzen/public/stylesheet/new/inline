@@ -1,0 +1,73 @@
+
+.error {
+    color: #FF0000;
+}
+.payment-errors {
+    color: #FF0000;
+}
+.calendar-box {
+    display:none;
+    background-color:#fff;
+    border:1px solid #444;
+    position:absolute;
+    width:250px;
+    padding: 0 5px;
+    background: gainsboro;
+padding: 5px;
+border-radius: 5px;
+z-index: 5;
+}
+.calendar-box select.calendar-month {
+    width:90px;
+}
+.calendar-box select.calendar-year {
+    width:70px;
+}
+.calendar-box .calendar-cancel {
+    width:100%;
+}
+.calendar-box table td {
+    width:14%;
+}
+.calendar-box .calendar-title {
+    text-align:center;
+}
+.calendar-box a {
+    text-decoration:none;
+}
+.calendar-box .today a {
+    padding:0 5px;
+    margin-left:-5px;
+    background-color:#ffe9c6;
+} 
+.calendar-box .selected a {
+    padding:0 5px;
+    margin-left:-5px;
+    background-color:#c9ff8b;
+}
+
+.counting input[type="radio"] {
+    display: none;
+}
+.serviceicons input[type="checkbox"] {
+    display: none;
+}
+.cleanservice input[type="radio"] {
+    display: none;
+}
+.col-fixed {
+    width: 13.6%;
+}
+
+.find-us-title {
+    margin-left: 15px;
+}
+
+
+.find-us-cont .question {
+    color: #F47C0C;
+}
+
+.findus-cont input[type="radio"] {
+    margin-top: 15px;
+}

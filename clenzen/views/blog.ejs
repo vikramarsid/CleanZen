@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>CleanZen</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+        <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- login modal -->
+
+<div class="modal fade order-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                 <h4 class="modal-title" id="loginModalLabel">Log<span class="highlight"> In</span></h4>
+            </div>
+            <form role="form" action="/postLogin" method="post">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>                       
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="theme_button"><i class="rt-icon-ok"></i> Login</button>
+                    <a href="/" class="theme_button" data-dismiss="modal"><i class="rt-icon-times"></i> Cancel</a>
+                </div>            
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="box_wrapper">
+
+
+    <section id="topline" class="light_section table_section">
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="/" class="navbar-brand"><img src="example/logo.png" alt=""> Clean<span>Zen</span></a>
+                    
+                </div>
+                
+
+    
+                <div class="col-sm-9 text-right">
+                <span>
+                  <%if(name!==null){%>
+                    <p style="font-weight:">Hi  <%=name%>!  <a href="/logout" style="cursor:pointer; color:blue">Logout</a>  <a href="/myhome" style="cursor:pointer; color:green">My CleanZen</a></p>
+                 <%}%>
+                    </span>
+                    <span>
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:info@company.net">info@cleanzen.net</a>
+                    </span>
+                    <span>
+                        <i class="fa fa-phone"></i> +1 (669)300-1234
+                    </span>
+                    <span>
+                        <a href="#" class="theme_button btn-sm" data-toggle="modal" data-target=".order-modal"><i class="rt-icon-pen-alt-stroke"></i> Login!</a>
+                    </span>
+                     <span>
+                        <a href="register" class="theme_button btn-sm">Register</a>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <span id="toggle_mobile_menu"></span>
+                        <span id="toggle_search"></span>
+                        <div class="widget widget_search">
+                            <form role="search" method="get" id="searchform" class="searchform form-inline" action="quote">
+                                <div class="form-group">
+                                    <label class="screen-reader-text" for="search">Search for:</label>
+                                    <input type="text" value="" name="search" id="search" class="form-control" placeholder="ZipCode">
+                                </div>
+                                <button type="submit" id="searchsubmit" class="theme_button">Search</button>
+                            </form>
+                        </div>
+                        <nav id="mainmenu_wrapper">
+                            <ul id="mainmenu" class="nav sf-menu">
+                                <li class="active">
+                                    <a href="index">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#info">About</a>
+                                </li>
+                                <li>
+                                    <a href="#services">Services</a>
+                                </li>
+                                <li>
+                                    <a href="#prices">Prices</a>
+                                </li>
+                                <li>
+                                    <a href="getsp">BookNow</a>
+                                </li>
+                                <li>
+                                    <a href="comingsoon">CleaningTips</a>
+                                </li>
+                                                                
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                 <li>
+                                    <a href="analysis">Analysis</a>
+                                </li>
+                                <li>
+                                    <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>  
+                        </nav>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+<section id="content" class="light_section blog no-sidebar">
+    <div class="container">
+        <div class="row">
+            <!-- main content -->
+            <div class="col-sm-10 col-sm-push-1">
+        
+                <article class="post format-standard">
+                    <header class="entry-header">
+                        <div class="entry-thumbnail">
+                            <img alt="" src="example/blog-post.jpg">
+                        </div>
+                        <h2 class="entry-title">
+                            <a href="blog" rel="bookmark">5 Cleaning Tasks Your Holiday Guests Will Only Notice If You Dont Do.</a>
+                        </h2>
+                        <div class="entry-meta">
+                            By
+                            <span class="author">
+                                <a rel="author" href="#">Alan Smith</a>
+                            </span>
+                            <span class="categories-links">
+                                In
+                                <a rel="category" href="#">CleanZen</a>, 
+                                <a rel="category" href="#">House Services</a>
+                            </span>
+                            <span class="date">
+                                Posted
+                                <time datetime="2014-06-08T15:05:23+00:00" class="entry-date">Dec 24, 2014</time>
+                            </span>
+                            <span class="comments-link">
+                                <a href="#">5 comments</a>
+                            </span>
+                        </div>
+                        <!-- .entry-meta --> 
+                        
+                    </header>
+                    <!-- .entry-header -->
+
+
+
+                    <div class="entry-content">
+                        <p style="font-family: sans-serif;">If you are hosting guests this holiday season, no doubt your cleaning efforts have redoubled. And we are sure it is no comfort to know that no matter how clean and organized your home, guests have an uncanny knack for opening spaces you would rather stay closed. Like the refrigerator. Or that closet.
+
+                        While you can distract them with wine or diminish with low lighting, the truth of the matter is visitors expect to stay in a lived-in house. Certain things, however, tend to grab unwanted attention. Here is how you hit the biggest offenders.
+
+                        Dust the baseboards. Run a microfiber cloth or duster around all the baseboards in your home. If you haven't done this in a while, use a damp cloth because wet attracts more dust than dry. This task, while a pain in the pumpkin, is very satisfying.
+
+                        Clear out the cobwebs and dust the walls. The Halloween excuse worked for a while, but now it is time to own up. A wet microfiber cloth (with an extendable wand for hard-to-reach places) should do the trick. If there are any tough spots, rub them gently with a soft-bristled brush before wiping down.
+
+                        Deodorize drains. Pour a half-cup of baking soda down the drain, and then chase it with a half-cup of vinegar. Let it fizz for few moments, then flush with boiling water.
+
+                        Sanitize refrigerator and freezer. Remove all the items from your freezer, getting rid of anything that is expired or freezer-burned, and turn off the unit (defrost if necessary). Then clean with a small amount of a mild detergent, dish soap or vinegar.      For the fridge, empty completely and toss old food (check expiration dates on condiments). Take out any bins or shelving and wash separately, then wipe down the walls, inside the door and fixed shelves. Before replacing food, vacuum and clean refrigerator coils, which become clogged over time. Special note: Make your chocolate, beer, and wine easy to find and your guests won't have a need to look around.
+
+                         Wipe drawers, cupboards and the medicine cabinet Remove every item and wipe down, inside and out, with warm, soapy water. Also, remove outdated, expired or unused medication and dispose of them properly. If you know you'll have some snoopers, place some fun items on the shelves or a note that congratulates them on their investigative work.
+                    </p>
+
+                    </div>
+                    <!-- .entry-content -->
+                    <div class="entry-tags">
+                        <span class="tags-links">
+                            <a rel="tag" href="#">CleanZen</a>, 
+                            <a rel="tag" href="#">HouseServices</a>
+                        </span>
+                        
+                    </div>
+                    <!-- .entry-tags -->
+                </article>
+                <!-- .post --> 
+
+                <article class="post format-small-image">
+                    <div class="row">
+                        <div class="entry-thumbnail col-sm-5">
+                            <img alt="" src="example/blog-post-small.jpg">
+                        </div>
+                        <div class="col-sm-7">
+                            <header class="entry-header">
+                                <h2 class="entry-title">
+                                    <a href="blog" rel="bookmark">5 Scandalous Cleaning Tasks That Will Have You Cleaning More Often</a>
+                                </h2>
+                                <div class="entry-meta">
+                                    By
+                                    <span class="author">
+                                        <a rel="author" href="#">Alan Smith</a>
+                                    </span>
+                                    <span class="categories-links">
+                                        In
+                                        <a rel="category" href="#">CleanZen</a>, 
+                                        <a rel="category" href="#">House Services</a>
+                                    </span>
+                                    <span class="date">
+                                        Posted
+                                        <time datetime="2014-06-08T15:05:23+00:00" class="entry-date">Dec 8, 2014</time>
+                                    </span>
+                                    <span class="comments-link">
+                                        <a href="#">5 comments</a>
+                                    </span>
+                                </div>
+                                <!-- .entry-meta --> 
+                            </header>
+                            <!-- .entry-header -->
+
+                            <div class="entry-content">
+                                <p style="font-family: sans-serif;">There are some that would argue that there is nothing sexier than a clean home. (Men, take note: The majority would argue there is nothing sexier than when you do it without asking). Defrocked closets, lovely pantries, fresh food, and an inviting bed all hit the sweet spot to pretty mind-blowing…organization.</p>
+                                <p style="font-family: sans-serif;">Sometimes in order to get down and dirty, you have to get down and clean. So show a little skin and roll up those sleeves for five cleaning tasks that will have you begging for more. It's about to get hot in here.</p>
+                            </div>
+                            <!-- .entry-content -->
+
+                            <div class="entry-tags">
+                                <span class="tags-links">
+                                    <a rel="tag" href="#">CleanZen</a>, 
+                                    <a rel="tag" href="#">House Services</a>
+                                </span>
+                            </div>
+                            <!-- .entry-tags -->
+                        </div>
+                    </div>
+
+                </article>
+                <!-- .post --> 
+
+                <article class="post format-gallery">
+                    <header class="entry-header">
+                        <div class="entry-thumbnail">
+                            <div id="carousel-generic" class="carousel slide">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-generic" data-slide-to="2"></li>
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="example/blog-post4.jpg" alt="image">
+                                    </div>
+                                    <div class="item">
+                                        <img src="example/blog-post2.jpg" alt="image">
+                                    </div>
+                                    <div class="item">
+                                        <img src="example/blog-post3.jpg" alt="image">
+                                    </div>
+                                </div>
+
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+                                    <span class="icon-prev"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+                                    <span class="icon-next"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <h2 class="entry-title">
+                            <a href="blog" rel="bookmark">8 Ways To "Fall Back" Into A Clean House and Good Health</a>
+                        </h2>
+                        <div class="entry-meta">
+                            By
+                            <span class="author">
+                                <a rel="author" href="#">Alan Smith</a>
+                            </span>
+                            <span class="categories-links">
+                                In
+                                <a rel="category" href="#">CleanZen</a>, 
+                                <a rel="category" href="#">House Cleaning Services</a>
+                            </span>
+                            <span class="date">
+                                Posted
+                                <time datetime="2014-06-08T15:05:23+00:00" class="entry-date">June 8, 2014</time>
+                            </span>
+                            <span class="comments-link">
+                                <a href="#">5 comments</a>
+                            </span>
+                        </div>
+                        <!-- .entry-meta --> 
+                    </header>
+                    <!-- .entry-header -->
+
+                    <div class="entry-content">
+                        <p style="font-family: sans-serif;">Daylight Saving Time ends at 2 a.m. on Sunday, November 2, which means most of us in North America (with the exception of you rebels in Hawaii, Arizona and Saskatchewan) will be adjusting our clocks to "fall back" an hour. The starting and ending dates of Daylight Saving Time are the perfect times to tackle biannual cleaning chores; they occur during seasonal change and seasonal illnesses, they split the year up fairly evenly, and they are easily remembered.
+
+                        If getting an extra hour of sleep this fall is going to help you breathe a little more easily, our biannual cleaning tips will make sure the air you inhale is all the better for you and your family. Take a few moments out of your recharged day to purify your home. Your immune system (and your HVAC system) will thank you!
+
+                        Rotate air flow and clean all ceiling fans.
+                        Vacuum all vents and registers.
+                        Vacuum and flip your mattress (both directions.)
+                        Purge your fridge and pantry of expired items.
+                        Wash or replace your shower curtains and liner.
+                        Wipe down the baseboards and trim (particularly in the kitchen, along hallways, and staircases).
+                        Swap out seasonal clothing.
+                        Test and/or replace batteries in your smoke detectors. 
+
+                        We know this list can be daunting, but there is plenty of research supporting how much staying on top of these health-related tasks can be beneficial to the health of everyone in the home. If you need more information on how to tackle these tasks, we are here to help!</p>
+
+                    </div>
+                    <!-- .entry-content -->
+                    <div class="entry-tags">
+                        <span class="tags-links">
+                            <a rel="tag" href="#">CleanZen</a>, 
+                            <a rel="tag" href="#">Cleaning Services</a>
+                        </span>
+                    </div>
+                    <!-- .entry-tags -->
+
+                </article>
+                <!-- .post --> 
+                <article class="post format-video">
+                    <header class="entry-header">
+                        <div class="entry-thumbnail">
+                            <iframe src="//player.vimeo.com/video/70531107" width="848" height="390"></iframe>
+                        </div>
+                        <h2 class="entry-title">
+                            <a href="./blog-single.html" rel="bookmark">Office Cleaning</a>
+                        </h2>
+                        <div class="entry-meta">
+                            By
+                            <span class="author">
+                                <a rel="author" href="#">Alan Smith</a>
+                            </span>
+                            <span class="categories-links">
+                                In
+                                <a rel="category" href="#">Alpha Cleaning</a>, 
+                                <a rel="category" href="#">Employee</a>
+                            </span>
+                            <span class="date">
+                                Posted
+                                <time datetime="2014-06-08T15:05:23+00:00" class="entry-date">Dec 8, 2014</time>
+                            </span>
+                            <span class="comments-link">
+                                <a href="#">5 comments</a>
+                            </span>
+                        </div>
+                        <!-- .entry-meta --> 
+                    </header>
+                    <!-- .entry-header -->
+
+                    <div class="entry-content">
+                        <p style="font-family: sans-serif;">If you are looking for a quality commercial cleaning company in USA, you have come to the right place.
+                            Here at CleanZen Cleaning Company we have many years of experience delivering exceptional cleaning and excellent customer service to all our customers.
+                            Our professional cleaners are trained inhouse before they go into your facility. We make sure they know what equipment and chemicals to use in order to clean, disinfect and improve the appearance of your building. Our supervisors visit your building often to make sure that all cleaning tasks are performed in a professional and timely manner. Our account managers are always there to assist you with your additional requests and to solve any problems related to cleaning.
+                            CleanZen Cleaning Company.</p>
+
+                    </div>
+                    <!-- .entry-content -->
+                    <div class="entry-tags">
+                        <span class="tags-links">
+                            <a rel="tag" href="#">CleanZen</a>, 
+                            <a rel="tag" href="#">San Jose</a>
+                        </span>
+                    </div>
+                    <!-- .entry-tags -->
+
+                </article>
+                <!-- .post --> 
+
+            </div> <!--eof col-sm-10 (main content)-->
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<section id="pagination" class="color_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                    <ul class="pagination">
+                        <li><a href="#"><i class="arrow-icon-left-open-mini"></i></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><i class="arrow-icon-right-open-mini"></i></a></li>
+                    </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+    <footer id="footer" class="grey_section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_flickr">
+                        <h3 class="widget-title">Flickr Widget</h3>
+                        <ul id="flickr"></ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 to_animate">
+
+                    <div class="widget widget_twitter">
+                        <h3 class="widget-title">Twitter Widget</h3>
+                        <div class="twitter"></div>
+                    </div>
+
+                </div>
+                    
+                    
+                
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_mailchimp">
+                        <h3 class="widget-title">Subscribe</h3>
+                        <p>Please, subscribe to our latest news to be updated.</p>
+                        <form id="signup" action="/" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input name="email" id="mailchimp_email" type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                            <button type="submit" class="theme_button">Send</button>
+                            <div id="response"></div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 to_animate">
+                    <div class="widget widget_text">
+                        <h3 class="widget-title">Company Info</h3>
+                        <p>CleanZen is the most trusted name among residential cleaning companies because we consistently deliver value through quality service and premium products that meet or exceed our customersâ€™ expectations.</p>
+                        <p> All of this accentuates why we are a top cleaning company. </p>
+                        <p>
+                            <a class="socialico-facebook" href="#" title="Facebook" data-toggle="tooltip">#</a>
+                            <a class="socialico-twitter" href="#" title="Twitter" data-toggle="tooltip">#</a>
+                            <a class="socialico-google" href="#" title="Google" data-toggle="tooltip">#</a>
+                        </p>
+                    </div>
+                </div>
+                    
+                    
+                
+            
+            </div>
+        </div>
+    </footer>
+
+
+    <section id="copyright" class="light_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>&copy; Copyright 2014 - <strong>CleanZen</strong></p>
+                </div>
+                               
+            </div>
+        </div>
+    </section>
+ 
+
+</div><!-- eof #box_wrapper -->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+
+        <!-- libraries -->
+        <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/vendor/jquery.appear.js"></script>
+
+        <!-- superfish menu  -->
+        <script src="/js/vendor/jquery.hoverIntent.js"></script>
+        <script src="/js/vendor/superfish.js"></script>
+        
+        <!-- page scrolling -->
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src='/js/vendor/jquery.nicescroll.min.js'></script>
+        <script src="/js/vendor/jquery.ui.totop.js"></script>
+        <script src="/js/vendor/jquery.localscroll-min.js"></script>
+        <script src="/js/vendor/jquery.scrollTo-min.js"></script>
+        <script src='/js/vendor/jquery.parallax-1.1.3.js'></script>
+
+        <!-- widgets -->
+        <script src="/js/vendor/jquery.easypiechart.min.js"></script><!-- pie charts -->
+        <script src='/js/vendor/jquery.countTo.js'></script><!-- digits counting -->
+        <script src="/js/vendor/jquery.prettyPhoto.js"></script><!-- lightbox photos -->
+        <script src='/js/vendor/jquery.plugin.min.js'></script><!-- plugin creator for comingsoon counter -->
+        <script src='/js/vendor/jquery.countdown.js'></script><!-- coming soon counter -->        
+        <script src="/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script><!-- zoom images -->
+        <script src='/js/vendor/jflickrfeed.min.js'></script><!-- flickr -->
+        <script src='twitter/jquery.tweet.min.js'></script><!-- twitter -->
+
+        <!-- sliders, filters, carousels -->
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src='/js/vendor/owl.carousel.min.js'></script>
+        <script src='/js/vendor/jquery.fractionslider.min.js'></script>
+        <script src='/js/vendor/jquery.flexslider-min.js'></script>
+        <script src='/js/vendor/jquery.bxslider.min.js'></script>
+
+        <!-- custom scripts -->
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+    </body>
+</html>
